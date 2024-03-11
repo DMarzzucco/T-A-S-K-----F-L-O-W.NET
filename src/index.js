@@ -1,13 +1,15 @@
 import express from "express";
 import morgan from "morgan";
-import router from "./routes/index.js";
+// import router from "./routes/index.js";
 import routerMo from "./routes/movies.js";
 import prueba from "./routes/prueba.js";
+import user from "./routes/user.js";
 
 const app = express();
-app.use(router);
+// app.use(router);
 app.use ('/api/movies', routerMo);
 app.use(prueba);
+app.use ('/api/user',user);
 
 
 // OPCIONES;

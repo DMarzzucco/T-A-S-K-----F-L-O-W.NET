@@ -1,17 +1,44 @@
 [
-    {
-        "id": "1",
-        "name": "Nombre de la pelicula o producto",
-        "title": "Descripción de la pelicula o producto",
-        "price": "Precio de la pelicula o producto",
-        "year": "2005"
-    },
-    {
-        "id": "2",
-        "name": "Nombre de la pelicula o producto 2",
-        "title": "Descripción de la pelicula o producto2",
-        "price": "Precio de la pelsdsdsdicula o producto2",
-        "year": "2005"
-    }
-
+  {
+    "id": 1,
+    "title": "Harry Potter",
+    "author": "J.K Rowling",
+    "price": "20"
+  },
+  {
+    "id": 2,
+    "title": "Kunfu Pnada",
+    "author": "NN",
+    "price": "20"
+  },
+  {
+    "id": 3,
+    "title": "La isla siniestra",
+    "author": "Scorsses",
+    "price": "49"
+  },
+  {
+    "id": 4,
+    "title": "La isla siniestra",
+    "author": "Scorsses",
+    "price": "49"
+  },
+  {
+    "id": 5,
+    "title": "La isla siniestra",
+    "author": "Scorsses",
+    "price": "49"
+  },
+  {
+    "id": 6,
+    "title": "Alicia in Wonderland",
+    "author": "Tim Burton",
+    "price": "49"
+  },
+  {
+    "id": 7,
+    "title": "La isla siniestra",
+    "author": "Scorsses",
+    "price": "49"
+  }
 ]
