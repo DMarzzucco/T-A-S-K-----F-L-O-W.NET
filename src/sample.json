@@ -7,14 +7,14 @@
   },
   {
     "id": 2,
-    "title": "Kunfu Pnada",
-    "author": "NN",
-    "price": "20"
+    "title": "Kunfu Panda",
+    "author": "Mark Osborne",
+    "price": "49"
   },
   {
     "id": 3,
-    "title": "La isla siniestra",
-    "author": "Scorsses",
+    "title": "Shultter Island",
+    "author": "Martin Scorsese",
     "price": "49"
   },
   {
@@ -31,7 +31,7 @@
   },
   {
     "id": 6,
-    "title": "Alicia in Wonderland",
+    "title": "Alic in Wonderland",
     "author": "Tim Burton",
     "price": "49"
   },

@@ -81,7 +81,7 @@ routerMo.put('/:id', (req, res) => {
     fs.readFile(jsonPath, 'utf8', (error, data) => {
         if (error) {
             console.error(error);
-            res.status(500).send('cannot read the file ');
+            res.status(500).send('No se pudo leer el archivo  ');
             return;
         }
         try {
@@ -96,7 +96,7 @@ routerMo.put('/:id', (req, res) => {
             fs.writeFile(jsonPath, JSON.stringify(movies, null, 2), (error) => {
                 if (error) {
                     console.error(error);
-                    res.status(500).send('cannot write the file ');
+                    res.status(500).send('No se puede escribir el archivo  ');
                     return;
                 }
                 res.send('se a actualizado');
