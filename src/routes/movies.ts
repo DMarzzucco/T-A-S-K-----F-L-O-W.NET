@@ -101,5 +101,30 @@ routMovie.put('/:id', async (req, res) => {
 
     }
 })
+routMovie.delete('/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    fs.readFile(jsonPath, 'utf8', (error, data) => {
+        if (error) {
+            console.error(error);
+            res.status(500).send('cannot found the file');
+            return;
+        }
+        try {
+            let movies: Movie[] = JSON.parse(data);
+            movies = movies.filter(movie => movie.id !== id);
+            fs.writeFile(jsonPath, JSON.stringify(movies, null, 2), (error) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).send('cannot write the file ');
+                    return;
+                }
+                res.send('movie has been delete');
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).send('an error ocurred while parsing ')
+        }
+    });
+});
 
 export default routMovie;
