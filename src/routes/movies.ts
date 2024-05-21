@@ -70,7 +70,7 @@ interface Movie {
     author: string;
     price: number;
 }
-
+// put res
 routMovie.put('/:id', async (req, res) => {
     const id = parseInt(req.params.id);
     if (isNaN(id)) {
@@ -101,6 +101,7 @@ routMovie.put('/:id', async (req, res) => {
 
     }
 })
+// post delete 
 routMovie.delete('/:id', (req, res) => {
     const id = parseInt(req.params.id);
     fs.readFile(jsonPath, 'utf8', (error, data) => {

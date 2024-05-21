@@ -2,7 +2,7 @@ import { Router } from "express";
 import fetch from "node-fetch";
 
 const user = Router();
-
+// prueba 
 user.get('/', async (_req, res) => {
     try {
         const respond = await fetch('https://my-json-server.typicode.com/typicode/demo/posts');
