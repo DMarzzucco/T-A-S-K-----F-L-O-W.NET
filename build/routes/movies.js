@@ -6,10 +6,8 @@ import * as express from 'express';
 const routMovie = Router();
 const readFileAysnc = promisify(fs.readFile);
 const writeFIleAsync = promisify(fs.writeFile);
-
 routMovie.use(express.json());
-const jsonPath = path.join(new URL('../sample.json', import.meta.url).pathname)
-
+const jsonPath = path.join(new URL('../sample.json', import.meta.url).pathname);
 // res get
 routMovie.get('/', (_req, res) => {
     fs.readFile(jsonPath, 'utf8', (error, data) => {
@@ -21,12 +19,13 @@ routMovie.get('/', (_req, res) => {
         try {
             const movie = JSON.parse(data);
             res.json(movie);
-        } catch (error) {
+        }
+        catch (error) {
             console.error(error);
             res.status(500).send(error);
         }
-    })
-})
+    });
+});
 // res post
 routMovie.post('/', (req, res) => {
     const { title, author, price } = req.body;
@@ -34,7 +33,7 @@ routMovie.post('/', (req, res) => {
         fs.readFile(jsonPath, 'utf-8', (error, data) => {
             if (error) {
                 console.log(error);
-                res.status(500).send('cannot read the file')
+                res.status(500).send('cannot read the file');
                 return;
             }
             try {
@@ -42,35 +41,27 @@ routMovie.post('/', (req, res) => {
                 const id = movie.length + 1;
                 const newMovie = { id, ...req.body };
                 console.log(newMovie);
-
                 movie.push(newMovie);
                 fs.writeFile(jsonPath, JSON.stringify(movie, null, 2), (error) => {
                     if (error) {
                         console.log(error);
-                        res.status(500).send('cannot write the file')
+                        res.status(500).send('cannot write the file');
                         return;
                     }
                     // res.json(newMovie)
-                    res.send('file saved')
+                    res.send('file saved');
                 });
-            } catch (error) {
+            }
+            catch (error) {
                 console.error(error);
                 res.status(500).send(error);
             }
-        })
-    } else {
+        });
+    }
+    else {
         res.status(400).send('cannot authentic alles elements');
     }
-})
-
-
-interface Movie {
-    id: number;
-    title: string;
-    author: string;
-    price: number;
-}
-
+});
 routMovie.put('/:id', async (req, res) => {
     const id = parseInt(req.params.id);
     if (isNaN(id)) {
@@ -84,22 +75,18 @@ routMovie.put('/:id', async (req, res) => {
     }
     try {
         const data = await readFileAysnc(jsonPath, 'utf8');
-        let movie: Movie[] = JSON.parse(data);
+        let movie = JSON.parse(data);
         const idUpdate = movie.findIndex(movie => movie.id === id);
         if (idUpdate === -1) {
             res.status(400).send("no se encontro el ID");
             return;
         }
-
         movie[idUpdate] = { id, title, author, price };
         await writeFIleAsync(jsonPath, JSON.stringify(movie, null, 2));
         res.send(' se ha actualizado ');
     }
     catch (error) {
         console.error(error);
-        res.status(500).send('Ops something wrng meanwhile the resq')
-
+        res.status(500).send('Ops something wrng meanwhile the resq');
     }
-})
-
-export default routMovie;
+});
