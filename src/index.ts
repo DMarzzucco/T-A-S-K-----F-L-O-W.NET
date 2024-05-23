@@ -8,7 +8,7 @@ App.use(cors());
 App.use(express.json());
 // ->
 let messages: string[] = [];
-// ->
+// ->reitarar los datos impuestos en fetch
 App.get('/message', (_req, res) => {
     res.json(messages)
 });
