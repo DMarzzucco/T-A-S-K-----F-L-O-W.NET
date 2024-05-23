@@ -1,25 +1,33 @@
 import express from "express";
-import user from "./routes/user.js";
-import prueba from "./routes/prueba.js";
-import routMovie from "./routes/movies.js";
-const app = express();
-app.use('/user', user);
-app.use(prueba);
-app.use(routMovie);
+import cors from 'cors';
 
+const App = express();
+const Port = process.env.PORT || 3000;
 
-app.use(express.json());
+App.use(cors());
+App.use(express.json());
 
-const port = process.env.PORT || 3000;
-app.get('/', (_req, res) => {
-    console.log('conectado');
-    const data = {
-        "name": "juan",
-        "lastname": "prachek"
+let messages: string[] = [];
+
+App.get('/message', (_req, res) => {
+    res.json(messages)
+});
+
+App.post('/message', async (req, res) => {
+    const message = req.body.message;
+    try {
+        if (typeof message === 'string') {
+            messages.push(message);
+            res.status(201).send('Message Aded')
+        } else {
+            throw new Error('Invalid Message Format')
+        }
+    } catch (error) {
+        res.status(400).send('Invalid Message Format')
     }
-    res.json(data);
+});
+
+App.listen(Port, () => {
+    console.log(`Server listen at port ${Port}`)
 })
 
-app.listen(port, () => {
-    console.log(`servidor conectado en el puerto ${port}`)
-})
