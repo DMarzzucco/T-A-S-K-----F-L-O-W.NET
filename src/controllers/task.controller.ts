@@ -19,6 +19,7 @@ export const postTask = async (req: Request, res: Response) => {
         }
     } catch (error) {
         return res.status(401).send(error instanceof Error ? error.message : 'Uknown Error')
+        console.log(error)
     }
 }
 
