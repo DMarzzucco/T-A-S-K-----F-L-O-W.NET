@@ -1,0 +1,1 @@
+export const ScreetToken:string = 'key';

@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import router from "./routes/messageRoutes";
+import taskRouter from "./routes/task.routes";
 
 const App = express();
 
@@ -11,6 +11,6 @@ const corsOptions ={
 App.use(cors(corsOptions));
 App.use(express.json());
 
-App.use("/api", router);
+App.use("/api", taskRouter);
 
 export default App;
