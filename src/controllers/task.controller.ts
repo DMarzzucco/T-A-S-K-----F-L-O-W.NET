@@ -1,11 +1,30 @@
 import { Request, Response } from "express";
-import { IMessage } from "../interfaces/IMessage";
+import { IMessage, AuthenticateRequest, TaskDB } from "../interfaces/IMessage";
+import taskModels from "../models/task.models";
 
 let Messages: IMessage[] = [];
 
-export const getTask = async (_req: Request, res: Response) => {
-    res.json(Messages);
-    console.log("connect")
+export const getTask = async (req: AuthenticateRequest, res: Response) => {
+    try {
+        if (!req.user) {
+            res.status(401).json({ message: "user not found" })
+        }
+        const tasks: TaskDB[] = await taskModels.find({ user: req.user?.id }).populate('user');
+
+        const response = {
+            tasks,
+            Messages: Messages
+        }
+        // const mongooseTasks = await Task.find({ user: req.user.id }).populate('user');
+        // const tasks: TaskDB[] = mongooseTasks.map(task => ({
+        //     ...task.toObject(),
+        //     title: task.title ?? undefined, 
+        // }));
+        res.json(response);
+
+    } catch (error) {
+        res.status(500).json({ message: error })
+    }
 }
 export const postTask = async (req: Request, res: Response) => {
     const message: IMessage = req.body.message;
