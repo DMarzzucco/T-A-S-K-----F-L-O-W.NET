@@ -1,4 +1,4 @@
-import App from "./main";
+import App from "./app/main";
 import { DB } from "./config/db";
 
 DB();
