@@ -29,3 +29,35 @@ export const register = async (req: Request, res: Response) => {
         });
     }
 }
+
+export const login = async (req: Request, res: Response) => {
+    const { username, password } = req.body
+    try {
+        const UserFound = await User.findOne({ username })
+        if (!UserFound) {
+            res.status(400).json({ message: "user not found " })
+            return;
+        }
+        if (UserFound.password) {
+            const isMatch = await bcrypt.compare(password, UserFound.password);
+            if (isMatch) {
+                const token = await AccesToken({ id: UserFound._id.toString() })
+                res.cookie("token", token)
+                res.json({
+                    username: UserFound.username,
+                    message: "Welcome"
+                })
+                console.log(UserFound)
+            } else {
+                console.log ("Invalid Password")
+                res.status(400).json({
+                    message: "Invalid password"
+                })
+            }
+        }
+
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ error: error })
+    }
+}

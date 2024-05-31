@@ -10,7 +10,8 @@ export const registerSchema = z.object({
 })
 
 export const loginSchema = z.object({
-    email: z.string({ required_error: "Required Email" }).email({}),
+    // email: z.string({ required_error: "Required Email" }).email({}),
+    username:z.string({required_error:"Username requerid"}),
     password: z.string({ required_error: "Required Password" }).min(6, {
         message: "the password must have 6 carac min"
     })
