@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
-import taskRouter from "../routes/task.routes";
-import userRoute from "../routes/auth.routes";
+import cookieParser from "cookie-parser"
+import { taskRoutes, authRoutes } from "../routes";
 
 const App = express();
 
@@ -11,8 +11,9 @@ const corsOptions = {
 };
 App.use(cors(corsOptions));
 App.use(express.json());
+App.use(cookieParser());
 
-App.use("/api", userRoute);
-App.use("/api", taskRouter);
+App.use("/api", authRoutes);
+App.use("/api", taskRoutes);
 
 export default App;
