@@ -6,7 +6,7 @@ import { loginSchema, registerSchema } from "../models/schemas/auth.schemas";
 
 const userRoute = Router();
 
-userRoute.post('/register', validateSchema(registerSchema), register);
+userRoute.post('/Register', validateSchema(registerSchema), register);
 userRoute.post('/login', validateSchema(loginSchema), login);
 userRoute.post('/logout', logout);
 userRoute.get('/profile', authRequired, profile)
