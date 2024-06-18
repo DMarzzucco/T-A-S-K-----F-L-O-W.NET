@@ -7,6 +7,12 @@ import { AuthenticateRequest } from "../interfaces/IMessage"
 export const register = async (req: Request, res: Response) => {
     const { email, password, username } = req.body
     try {
+        const userFound = await User.findOne({ email });
+        if (userFound) {
+            res.status(400).json({ error: ["The email already exists"] })
+            return;
+        }
+
         const passhash = await bcrypt.hash(password, 10)
         const newUser = new User({
             email, password: passhash, username
