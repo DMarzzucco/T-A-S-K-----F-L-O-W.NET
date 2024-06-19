@@ -9,7 +9,8 @@ export const register = async (req: Request, res: Response) => {
     try {
         const userFound = await User.findOne({ email });
         if (userFound) {
-            res.status(400).json({ error: ["The email already exists"] })
+            res.status(400).json({ errors: [{ message: "The email already exists" }] })
+            // res.status(400).json(["The email already exists"])
             return;
         }
 
@@ -31,9 +32,7 @@ export const register = async (req: Request, res: Response) => {
 
     } catch (error) {
         console.log(error)
-        res.status(500).json({
-            error: error
-        });
+        res.status(500).json({ errors: [{ message: "Server error" }] });
     }
 }
 
