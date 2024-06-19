@@ -1,8 +1,6 @@
 import { Request, Response, NextFunction } from "express"
 import { AnyZodObject, ZodError } from "zod"
-
-interface ErrorResponse { error: string }
-interface ValidationErrorResponse { errors: { message: string }[]; }
+import { ErrorResponse, ValidationErrorResponse } from "../interfaces/IMessage";
 
 export const validateSchema = (Schema: AnyZodObject) =>
     (req: Request, res: Response<ValidationErrorResponse | ErrorResponse>, next: NextFunction) => {
@@ -22,6 +20,6 @@ export const validateSchema = (Schema: AnyZodObject) =>
                 return;
             }
             res.status(500).json({ errors: [{ message: "Server error" }] })
-            return;
+            return; 
         }
     }

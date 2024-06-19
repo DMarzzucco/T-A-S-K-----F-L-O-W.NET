@@ -12,3 +12,5 @@ export interface TaskDB extends Document {
     title?: string | null;
     user?: Types.ObjectId | null;
 }
+export interface ErrorResponse { error: string }
+export interface ValidationErrorResponse { errors: { message: string }[]; }
