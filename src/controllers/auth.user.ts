@@ -40,7 +40,7 @@ export const login = async (req: Request, res: Response) => {
     try {
         const UserFound = await User.findOne({ username })
         if (!UserFound) {
-            res.status(400).json({ message: "user not found " })
+            res.status(400).json({ errors: [{ message: "User not found" }] })
             return;
         }
         if (UserFound.password) {
@@ -52,12 +52,10 @@ export const login = async (req: Request, res: Response) => {
                     username: UserFound.username,
                     message: "Welcome"
                 })
-                console.log(UserFound)
+                console.log("Welcome ")
             } else {
                 console.log("Invalid Password")
-                res.status(400).json({
-                    message: "Invalid password"
-                })
+                res.status(400).json({ errors: [{ message: "The Password is Wrong" }] })
             }
         }
 
