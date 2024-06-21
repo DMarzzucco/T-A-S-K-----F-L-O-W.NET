@@ -105,19 +105,17 @@ export const VeryToken = async (req: AuthenticateRequest, res: Response) => {
         res.status(401).json({ errors: [{ message: "Unauthorized" }] })
         return
     }
-    Jwt.verify(token, ScreetToken, async (err: VerifyErrors | null, user: any) => {
+    Jwt.verify(token, ScreetToken, async (err: VerifyErrors | null, decode: any) => {
         if (err) {
             res.status(401).json({ errors: [{ message: "Unauthorized" }] })
             return
         }
-        const userFound = await user.findById(user.id)
+        const userFound = await User.findById(decode.id)
         if (!userFound) {
             res.status(401).json({ errors: [{ message: "Unauthorized" }] })
             return
         } else if (userFound) {
-            res.status(200).json({
-                message: "User Found it "
-            })
+            res.status(200).json({ message: "User Found it " })
         }
     })
 
