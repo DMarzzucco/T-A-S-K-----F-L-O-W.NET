@@ -3,6 +3,9 @@ import { Request, Response } from "express"
 import bcrypt from "bcryptjs"
 import { AccesToken } from "../utils/generate.token"
 import { AuthenticateRequest } from "../interfaces/IMessage"
+import Jwt, { VerifyErrors } from "jsonwebtoken"
+import { ScreetToken } from "../utils/config"
+
 
 export const register = async (req: Request, res: Response) => {
     const { email, password, username } = req.body
@@ -19,7 +22,7 @@ export const register = async (req: Request, res: Response) => {
         })
         const userSave = await newUser.save();
         const token = await AccesToken({ id: userSave._id.toString() })
-        res.cookie("token", token)
+        res.cookie("token", token, { sameSite: "none", secure: true })
         console.log("User Register ")
         res.json({
             id: userSave._id,
@@ -47,7 +50,7 @@ export const login = async (req: Request, res: Response) => {
             const isMatch = await bcrypt.compare(password, UserFound.password);
             if (isMatch) {
                 const token = await AccesToken({ id: UserFound._id.toString() })
-                res.cookie("token", token)
+                res.cookie("token", token, { sameSite: "none", secure: true, httpOnly: false })
                 res.json({
                     username: UserFound.username,
                     message: "Welcome"
@@ -94,4 +97,28 @@ export const profile = async (req: AuthenticateRequest, res: Response) => {
         })
         return;
     }
+}
+
+export const VeryToken = async (req: AuthenticateRequest, res: Response) => {
+    const { token } = req.cookies
+    if (!token) {
+        res.status(401).json({ errors: [{ message: "Unauthorized" }] })
+        return
+    }
+    Jwt.verify(token, ScreetToken, async (err: VerifyErrors | null, user: any) => {
+        if (err) {
+            res.status(401).json({ errors: [{ message: "Unauthorized" }] })
+            return
+        }
+        const userFound = await user.findById(user.id)
+        if (!userFound) {
+            res.status(401).json({ errors: [{ message: "Unauthorized" }] })
+            return
+        } else if (userFound) {
+            res.status(200).json({
+                message: "User Found it "
+            })
+        }
+    })
+
 }
