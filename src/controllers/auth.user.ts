@@ -8,7 +8,7 @@ import { ScreetToken } from "../utils/config"
 
 
 export const register = async (req: Request, res: Response) => {
-    const { email, password, username } = req.body
+    const { email, password, username, fullname } = req.body
     try {
         const userFound = await User.findOne({ email });
         if (userFound) {
@@ -18,7 +18,7 @@ export const register = async (req: Request, res: Response) => {
 
         const passhash = await bcrypt.hash(password, 10)
         const newUser = new User({
-            email, password: passhash, username
+            email, password: passhash, username,fullname
         })
         const userSave = await newUser.save();
         const token = await AccesToken({ id: userSave._id.toString() })
@@ -27,6 +27,7 @@ export const register = async (req: Request, res: Response) => {
         res.json({
             id: userSave._id,
             username: userSave.username,
+            fullname: userSave.fullname,
             email: userSave.email,
             createAT: userSave.createdAt,
             updateAT: userSave.updatedAt
@@ -53,9 +54,10 @@ export const login = async (req: Request, res: Response) => {
                 res.cookie("token", token, { sameSite: "none", secure: true, httpOnly: false })
                 res.json({
                     username: UserFound.username,
+                    fullname:UserFound.fullname,
                     message: "Welcome"
                 })
-                console.log("Welcome ")
+                console.log(UserFound)
             } else {
                 console.log("Invalid Password")
                 res.status(400).json({ errors: [{ message: "The Password is Wrong" }] })
@@ -64,7 +66,7 @@ export const login = async (req: Request, res: Response) => {
 
     } catch (error) {
         console.error(error)
-        res.status(500).json({ error: [{error }]})
+        res.status(500).json({ error: [{ error }] })
     }
 }
 
@@ -92,9 +94,7 @@ export const profile = async (req: AuthenticateRequest, res: Response) => {
         })
 
     } catch (error) {
-        res.status(500).json({
-            error: error
-        })
+        res.status(500).json({ error: [{ message: error }] })
         return;
     }
 }

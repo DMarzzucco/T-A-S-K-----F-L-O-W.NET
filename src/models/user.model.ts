@@ -7,6 +7,11 @@ const userModel = new mongoose.Schema({
         trim: true,
         unique: true
     },
+    fullname:{
+        type:String,
+        require:true,
+        trim:true,
+    },
     email: {
         type: String,
         require: true,
