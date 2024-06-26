@@ -1,57 +1,82 @@
 import { Request, Response } from "express";
-import { IMessage, AuthenticateRequest, TaskDB } from "../interfaces/IMessage";
-import taskModels from "../models/task.models";
+import { AuthenticateRequest } from "../interfaces/IMessage";
+import Task from "../models/task.models";
+import User from "../models/user.model"
 
-let Messages: IMessage[] = [];
-
-export const getTask = async (req: AuthenticateRequest, res: Response) => {
+export const getTasks = async (req: AuthenticateRequest, res: Response) => {
+    const UserID = await User.findById(req.user?.id)
+    const tasks = await Task.find({ user: UserID }).populate('user')
     try {
-        if (!req.user) {
-            res.status(401).json({ message: "user not found" })
+        if (!tasks) {
+            res.status(400).json({ errors: [{ message: "Task not found " }] })
+            return;
         }
-        const tasks: TaskDB[] = await taskModels.find({ user: req.user?.id }).populate('user');
-
-        const response = {
-            tasks,
-            Messages: Messages
-        }
-        // const mongooseTasks = await Task.find({ user: req.user.id }).populate('user');
-        // const tasks: TaskDB[] = mongooseTasks.map(task => ({
-        //     ...task.toObject(),
-        //     title: task.title ?? undefined, 
-        // }));
-        res.json(response);
-
+        res.json({ tasks })
     } catch (error) {
-        res.status(500).json({ message: error })
+        res.status(500).json({ error: [{ message: "Server error" }] })
+        return;
     }
 }
+
+export const getTaskbyId = async (req: AuthenticateRequest, res: Response) => {
+    const taskFound = await Task.findById(req.task?.id)
+    try {
+        if (!taskFound) {
+            res.status(400).json({ errors: [{ message: "task not found" }] })
+            return
+        }
+        return res.json({
+            id: taskFound._id,
+            title: taskFound.title,
+            description: taskFound.description,
+            message: "Task found it"
+        })
+    } catch (error) {
+        res.status(500).json({ error: [{ message: "server error" }] })
+        return;
+    }
+}
+
 export const postTask = async (req: Request, res: Response) => {
-    const message: IMessage = req.body.message;
+    const { title, description, data } = req.body;
     try {
-        if (typeof message === 'string') {
-            Messages.push(message);
-            console.log(message)
-            return res.status(201).send('Message Added');
-        } else {
-            throw new Error('Invalid Format');
-        }
+        const newTask = new Task({ title, description, data });
+        const saveTasks = await newTask.save()
+        res.json({ saveTasks });
+        return
     } catch (error) {
-        console.log(error)
-        return res.status(401).send(error instanceof Error ? error.message : 'Uknown Error')
+        console.error(error)
+        res.status(500).json({ error: [{ message: "Server error " }] })
     }
 }
 
-export const deleteTask = async (req: Request, res: Response) => {
-    const index: number = parseInt(req.params.index, 10);
+export const updateTask = async (req: AuthenticateRequest, res: Response) => {
+    const taskID = await Task.findById(req.task?.id, req.body, { new: true })
+    const Taskupdate = await Task.findByIdAndUpdate(taskID)
     try {
-        if (isNaN(index) || index < 0 || index >= Messages.length) {
-            return res.status(400).send('Message not was found');
+        if (!Taskupdate) {
+            res.status(400).json({ errors: [{ message: "Task not found" }] })
+            return
         }
-        Messages.splice(index, 1);
-        console.log('DELETE');
-        return res.status(200).send('Message was deleted');
+        return res.status(200).json({ message: [{ message: "Task was update" }] })
     } catch (error) {
-        return res.status(401).send(error);
+        res.status(500).json({ error: [{ message: "server error" }] })
+        return;
     }
 }
+
+export const deleteTask = async (req: AuthenticateRequest, res: Response) => {
+    const taskID = await Task.findById(req.task?.id)
+    const Taskdelete = await Task.findByIdAndDelete(taskID)
+    try {
+        if (!Taskdelete) {
+            res.status(400).json({ errors: [{ message: "taks not found" }] })
+            return
+        }
+        return res.status(200).json({ message: [{ message: "Task was deleted" }] })
+    } catch (error) {
+        return res.status(500).json({ error: [{ message: "Server Error" }] });
+    }
+}
+
+

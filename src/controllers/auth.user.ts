@@ -15,10 +15,10 @@ export const register = async (req: Request, res: Response) => {
             res.status(400).json({ errors: [{ message: "The email already exists" }] })
             return;
         }
-
         const passhash = await bcrypt.hash(password, 10)
+
         const newUser = new User({
-            email, password: passhash, username,fullname
+            email, password: passhash, username, fullname
         })
         const userSave = await newUser.save();
         const token = await AccesToken({ id: userSave._id.toString() })
@@ -54,7 +54,7 @@ export const login = async (req: Request, res: Response) => {
                 res.cookie("token", token, { sameSite: "none", secure: true, httpOnly: false })
                 res.json({
                     username: UserFound.username,
-                    fullname:UserFound.fullname,
+                    fullname: UserFound.fullname,
                     message: "Welcome"
                 })
                 console.log(UserFound)
@@ -87,7 +87,7 @@ export const profile = async (req: AuthenticateRequest, res: Response) => {
             return;
         }
         return res.json({
-            if: userFound._id,
+            id: userFound._id,
             username: userFound.username,
             email: userFound.email,
             message: "Your are in the profile "
@@ -119,4 +119,20 @@ export const VeryToken = async (req: AuthenticateRequest, res: Response) => {
         }
     })
 
+}
+
+export const deleteUser = async (req: AuthenticateRequest, res: Response) => {
+    const userID = await User.findById(req.user?.id)
+    const Userdelete = await User.findByIdAndDelete(userID)
+    try {
+        if (!Userdelete) {
+            res.status(400).json({ errors: [{ message: "User not found" }] })
+            return;
+        }
+        res.status(200).json({ message: [{ mesasge: "User deletid" }] })
+        return;
+    } catch (error) {
+        res.status(500).json({ error: [{ message: "Server Error" }] })
+        return;
+    }
 }

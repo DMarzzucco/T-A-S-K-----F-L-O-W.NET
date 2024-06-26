@@ -1,7 +1,7 @@
 import jwt, { VerifyErrors } from "jsonwebtoken";
 import { Response, NextFunction } from "express";
 import { ScreetToken } from "../utils/config";
-import { AuthenticateRequest, userPayload } from "../interfaces/IMessage";
+import { AuthenticateRequest, idPayload } from "../interfaces/IMessage";
 
 export const authRequired = (req: AuthenticateRequest, res: Response, next: NextFunction): void => {
     const token = req.cookies['token'];
@@ -15,7 +15,7 @@ export const authRequired = (req: AuthenticateRequest, res: Response, next: Next
             return;
         }
         if (decoded) {
-            req.user = decoded as userPayload;
+            req.user = decoded as idPayload;
             next();
         } else {
             res.status(400).json({ message: "token fail" });
