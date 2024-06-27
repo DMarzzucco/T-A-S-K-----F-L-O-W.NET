@@ -4,7 +4,10 @@ export interface IMessage {
     id: string;
     text: string;
 }
-export interface idPayload { id: string; }
+export interface idPayload {
+    id: string;
+    username?: string;
+}
 export interface AuthenticateRequest extends Request {
     user?: idPayload;
     task?: idPayload;

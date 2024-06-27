@@ -51,7 +51,9 @@ export const login = async (req: Request, res: Response) => {
             const isMatch = await bcrypt.compare(password, UserFound.password);
             if (isMatch) {
                 const token = await AccesToken({ id: UserFound._id.toString() })
-                res.cookie("token", token, { sameSite: "none", secure: true, httpOnly: false })
+                res.cookie("token", token,
+                    // { sameSite: "none", secure: true, httpOnly: false }
+                )
                 res.json({
                     username: UserFound.username,
                     fullname: UserFound.fullname,
@@ -88,6 +90,7 @@ export const profile = async (req: AuthenticateRequest, res: Response) => {
         }
         return res.json({
             id: userFound._id,
+            fullname: userFound.fullname,
             username: userFound.username,
             email: userFound.email,
             message: "Your are in the profile "
@@ -102,7 +105,7 @@ export const profile = async (req: AuthenticateRequest, res: Response) => {
 export const VeryToken = async (req: AuthenticateRequest, res: Response) => {
     const { token } = req.cookies
     if (!token) {
-        res.status(401).json({ errors: [{ message: "Unauthorized" }] })
+        res.status(401).json({ errors: [{ message: "Token not found" }] })
         return
     }
     Jwt.verify(token, ScreetToken, async (err: VerifyErrors | null, decode: any) => {
@@ -133,6 +136,40 @@ export const deleteUser = async (req: AuthenticateRequest, res: Response) => {
         return;
     } catch (error) {
         res.status(500).json({ error: [{ message: "Server Error" }] })
+        return;
+    }
+}
+// Alles users
+export const showAllUsers = async (_req: AuthenticateRequest, res: Response) => {
+    const AllUsers = await User.find()
+    try {
+        if (!AllUsers || AllUsers.length === 0) {
+            res.status(400).json({
+                errors: [{
+                    message: "Not exist users in the data base "
+                }]
+            })
+            return
+        }
+        res.json(AllUsers)
+        return;
+    } catch (error) {
+        res.status(500).json({ error: [{ message: "server error" }] })
+        return;
+    }
+}
+
+export const deleteAllUsers = async (_req: AuthenticateRequest, res: Response) => {
+    const AllUsers = await User.deleteMany()
+    try {
+        if (!AllUsers) {
+            res.status(400).json({ errors: [{ message: "Users not found it" }] })
+            return
+        }
+        res.status(200).json({ mesage: "All user was deleted " })
+        return;
+    } catch (error) {
+        res.status(500).json({ error: [{ message: "server error" }] })
         return;
     }
 }
