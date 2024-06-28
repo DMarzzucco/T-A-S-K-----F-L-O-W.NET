@@ -8,7 +8,7 @@ const userRoute = Router();
 
 userRoute.post('/Register', validateSchema(registerSchema), register);
 userRoute.post('/Login', validateSchema(loginSchema), login);
-userRoute.post('/Logout', logout);
+userRoute.post('/task', logout);
 userRoute.get('/very', authRequired, VeryToken)
 userRoute.get('/Profile', authRequired, profile)
 userRoute.delete("/delete/:index", authRequired, deleteUser)

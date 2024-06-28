@@ -117,9 +117,8 @@ export const VeryToken = async (req: AuthenticateRequest, res: Response) => {
         if (!userFound) {
             res.status(401).json({ errors: [{ message: "Unauthorized" }] })
             return
-        } else if (userFound) {
-            res.status(200).json({ message: "User Found it " })
         }
+        return res.status(200).json({ user: userFound })
     })
 
 }
