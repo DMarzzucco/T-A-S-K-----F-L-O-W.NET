@@ -1,7 +1,6 @@
 import { Response } from "express";
 import { AuthenticateRequest } from "../interfaces/IMessage";
 import Task from "../models/task.models";
-// import User from "../models/user.model"
 
 export const getTasks = async (req: AuthenticateRequest, res: Response) => {
     const tasks = await Task.find({ user: req.user?.id }).populate('user')
@@ -90,12 +89,12 @@ export const deleteTask = async (req: AuthenticateRequest, res: Response) => {
 export const getAllTask = async (_req: AuthenticateRequest, res: Response) => {
     const task = await Task.find()
     try {
-        if (!task || task.length === 0) {
-            res.status(400).json({
-                errors: [{
-                    message: "No exist task yet "
-                }]
-            })
+        if (!task) {
+            res.status(400).json({ errors: [{ message: "Task not found  " }] })
+            return;
+        }
+        if (task.length === 0) {
+            res.status(200).json({ message: [{ message: "No one task yet" }] })
             return;
         }
         return res.json(task)

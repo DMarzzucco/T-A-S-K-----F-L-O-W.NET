@@ -122,17 +122,29 @@ export const VeryToken = async (req: AuthenticateRequest, res: Response) => {
     })
 
 }
+export const putUser = async (req: AuthenticateRequest, res: Response) => {
+    const userId = await User.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    try {
+        if (!userId) {
+            res.status(400).json({ errors: [{ message: "user not found" }] })
+            return
+        }
+        return res.status(200).json({ message: "User was update " })
+    } catch (error) {
+        res.status(500).json({ error: [{ message: "Server error" }] })
+        return;
+    }
+}
 
 export const deleteUser = async (req: AuthenticateRequest, res: Response) => {
-    const userID = await User.findById(req.user?.id)
-    const Userdelete = await User.findByIdAndDelete(userID)
+    const Userdelete = await User.findByIdAndDelete(req.params.id)
     try {
         if (!Userdelete) {
             res.status(400).json({ errors: [{ message: "User not found" }] })
             return;
         }
-        res.status(200).json({ message: [{ mesasge: "User deletid" }] })
-        return;
+        res.cookie('token', "", { expires: new Date(0) })
+        res.json({ message: "Session out and User was delet" })
     } catch (error) {
         res.status(500).json({ error: [{ message: "Server Error" }] })
         return;
