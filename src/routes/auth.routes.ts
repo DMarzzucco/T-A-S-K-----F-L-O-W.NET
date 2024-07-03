@@ -10,9 +10,9 @@ userRoute.post('/Register', validateSchema(registerSchema), register);
 userRoute.post('/Login', validateSchema(loginSchema), login);
 userRoute.post('/taskOut', logout);
 userRoute.get('/very', authRequired, VeryToken)
-userRoute.get('/Profile', authRequired, profile)
+userRoute.get('/profile/:id', authRequired, profile)
 userRoute.put("/update/:id", authRequired, putUser);
-userRoute.delete("/delete/:id", authRequired, deleteUser)
+userRoute.delete("/profile/:id", authRequired, deleteUser)
 // 
 userRoute.get('/Users', showAllUsers);
 userRoute.delete('/Users', deleteAllUsers)

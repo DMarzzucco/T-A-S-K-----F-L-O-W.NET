@@ -76,7 +76,7 @@ export const logout = async (_req: Request, res: Response) => {
     res.cookie('token', "", {
         expires: new Date(0)
     })
-    res.json({ message: "Session out" })
+    res.json({ message: [{ message: "Session out" }] })
 }
 
 export const profile = async (req: AuthenticateRequest, res: Response) => {
