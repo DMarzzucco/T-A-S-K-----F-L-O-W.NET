@@ -1,9 +1,10 @@
-import App from "./app/main";
-import { DB } from "./config/db";
+import { App } from "./app/main";
 
-DB();
-const port = process.env.PORT || 3000;
-
-App.listen(port, () => {
-    console.log(`Server listening port ${port}`)
-});
+async function main() {
+    const app = new App(3000)
+    await app.listen()
+}
+main().catch(err => {
+    console.log(`Error al iniciar el servidor ${err}`)
+    process.exit(1)
+})
