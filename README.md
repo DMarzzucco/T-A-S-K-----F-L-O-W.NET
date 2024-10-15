@@ -1,6 +1,18 @@
-<h1>Prueba de backend</h1>
+# API AUTH SECURITY IMPLEMENTS
 
-##Installar
-"npm install"
-##correr
-"npm run dev"
+## Install
+
+```bash
+#Init the db
+docker-compose up db 
+
+#Generate the table
+npx prisma generate
+
+# Migrate the deploy
+npx prisma migrate deploy
+
+# Start the server
+npm run start:dev
+
+```
