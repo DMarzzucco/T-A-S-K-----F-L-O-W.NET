@@ -1,8 +1,12 @@
+-- CreateEnum
+CREATE TYPE "ROLES" AS ENUM ('BASIC', 'ADMIN');
+
 -- CreateTable
 CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
     "username" VARCHAR(255) NOT NULL,
     "password" TEXT NOT NULL,
+    "roles" "ROLES" NOT NULL,
     "create_time" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "update_time" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 

@@ -1,14 +1,14 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { AuthService } from './auth.service';
-import { LocalStrategy } from '../strategies/local.strategy';
+import { AuthController } from './auth.controller';
 import { JwtStrategy } from '../strategies/jwt.strategy';
-import { AuthController } from '../controllers/auth.controller';
+import { LocalStrategy } from '../strategies/local.strategy';
 import { UsersModule } from '../../users/users.module';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
+import { AuthService } from '../services/auth.service';
 
-describe('AuthService', () => {
-  let service: AuthService;
+describe('AuthController', () => {
+  let controller: AuthController;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -29,14 +29,13 @@ describe('AuthService', () => {
       ],
     
       providers: [AuthService, LocalStrategy, JwtStrategy],
-      controllers:[AuthController]
-
+      controllers: [AuthController],
     }).compile();
 
-    service = module.get<AuthService>(AuthService);
+    controller = module.get<AuthController>(AuthController);
   });
 
   it('should be defined', () => {
-    expect(service).toBeDefined();
+    expect(controller).toBeDefined();
   });
 });
