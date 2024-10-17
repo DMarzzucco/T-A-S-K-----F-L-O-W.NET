@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from '../prisma/prisma.service';
@@ -28,6 +28,7 @@ export class UsersService {
 
   async finBy({ key, value }: findByProps): Promise<User> {
     const user: User = await this.prisma.user.findFirst({where: { [key]: value }})
+    if (!user) throw new NotFoundException("User not found ")
     return user
   }
 
