@@ -13,10 +13,11 @@ enum ROLES {
 }
 
 model User {
-  id          Int      @id @default(autoincrement())
-  username    String   @unique @db.VarChar(255)
-  password    String
-  roles       ROLES
-  create_time DateTime @default(now())
-  update_time DateTime @default(now())
+  id           Int      @id @default(autoincrement())
+  username     String   @unique @db.VarChar(255)
+  password     String
+  roles        ROLES
+  refreshToken String?
+  create_time  DateTime @default(now())
+  update_time  DateTime @default(now()) @updatedAt
 }

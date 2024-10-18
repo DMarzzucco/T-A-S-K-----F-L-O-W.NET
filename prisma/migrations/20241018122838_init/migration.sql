@@ -7,6 +7,7 @@ CREATE TABLE "User" (
     "username" VARCHAR(255) NOT NULL,
     "password" TEXT NOT NULL,
     "roles" "ROLES" NOT NULL,
+    "refreshToken" TEXT,
     "create_time" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "update_time" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 

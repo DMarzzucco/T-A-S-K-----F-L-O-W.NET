@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from '../prisma/prisma.service';
@@ -23,17 +23,24 @@ export class UsersService {
   }
 
   async findOne(id: number): Promise<User> {
-    return await this.prisma.user.findUnique({ where: { id: id } });
+    const user = await this.prisma.user.findUnique({ where: { id: id } });
+    if (!user) throw new NotFoundException("User not found")
+    return user
   }
 
   async finBy({ key, value }: findByProps): Promise<User> {
-    const user: User = await this.prisma.user.findFirst({where: { [key]: value }})
-    if (!user) throw new NotFoundException("User not found ")
+    const user: User = await this.prisma.user.findFirst({ where: { [key]: value } })
+    if (!user) throw new UnauthorizedException("This username dows not exist in the database")
     return user
   }
 
   async update(id: number, data: UpdateUserDto): Promise<UpdateUserDto> {
     return await this.prisma.user.update({ where: { id: id }, data: data })
+  }
+
+  async updateToken(id: number, refreshToken: string): Promise<User> {
+    if (!id) throw new Error("Invalid ID Provided")
+    return await this.prisma.user.update({ where: { id }, data: { refreshToken } })
   }
 
   async remove(id: number): Promise<User> {
