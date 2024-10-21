@@ -10,15 +10,19 @@ import { UsersService } from "../../users/users.service";
 export class JwtStrategy extends PassportStrategy(Strategy, "jwt") {
     constructor(private readonly userService: UsersService) {
         super({
-            jwtFromRequest: ExtractJwt.fromExtractors([
-                (req: Request) => req.cookies?.Authentication
-            ]),
+            // jwtFromRequest: ExtractJwt.fromExtractors([
+            //     (req: Request) => req.cookies?.Authentication
+            // ]),
+            jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
             secretOrKey: process.env.SEECRET_KEY,
             ignoreExpiration: false
         })
     }
 
     async validate(payload: PayLoadToken) {
-        return this.userService.finBy({ key: "id", value: payload.sub });
+        console.log('Payload received:', payload); // Agregar log aquí
+        const user =  this.userService.finBy({ key: "id", value: payload.sub });
+        console.log('User found:', user)
+        return {...user, roles: payload.roles}
     }
 }

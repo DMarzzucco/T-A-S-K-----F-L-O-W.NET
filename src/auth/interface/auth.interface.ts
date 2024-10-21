@@ -9,3 +9,10 @@ export interface AuthDTOProps {
     password: string;
     username: string;
 }
+export interface AuthTokenResult {
+    role: string;
+    sub: string;
+    iat: number;
+    exp: number;
+}
+export interface IUseToken extends Omit<AuthTokenResult, "ia" | "exp"> { isExpire: boolean }
