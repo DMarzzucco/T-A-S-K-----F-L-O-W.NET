@@ -1,4 +1,5 @@
 # API AUTH SECURITY IMPLEMENTS
+Test API, to test validation and authentication systems.
 
 ## Install
 
@@ -16,3 +17,10 @@ npx prisma migrate deploy
 npm run start:dev
 
 ```
+
+## Documentation Swagger
+
+[Docs](http://localhost:3003/docs)
+
+## Author
+Dario Marzzucco 

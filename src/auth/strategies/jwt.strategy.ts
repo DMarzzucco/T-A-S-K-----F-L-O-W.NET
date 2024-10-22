@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, UnauthorizedException } from "@nestjs/common";
 import { PassportStrategy } from "@nestjs/passport";
 import { Request } from "express";
 import { ExtractJwt, Strategy } from "passport-jwt";
@@ -10,19 +10,20 @@ import { UsersService } from "../../users/users.service";
 export class JwtStrategy extends PassportStrategy(Strategy, "jwt") {
     constructor(private readonly userService: UsersService) {
         super({
-            // jwtFromRequest: ExtractJwt.fromExtractors([
-            //     (req: Request) => req.cookies?.Authentication
-            // ]),
-            jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-            secretOrKey: process.env.SEECRET_KEY,
-            ignoreExpiration: false
+            jwtFromRequest: ExtractJwt.fromExtractors([
+                (req: Request) => req.cookies?.Authentication
+            ]),
+            secretOrKey: process.env.SECRET_KEY,
+            ignoreExpiration: true
         })
     }
 
     async validate(payload: PayLoadToken) {
-        console.log('Payload received:', payload); // Agregar log aquí
-        const user =  this.userService.finBy({ key: "id", value: payload.sub });
-        console.log('User found:', user)
-        return {...user, roles: payload.roles}
+        if (!payload.sub) throw new UnauthorizedException("Token does not conatin a valid user ID")
+
+        // const user = await this.userService.finBy({ key: "id", value: payload.sub });
+        // return { ...user, roles: payload.roles }
+        const user = await this.userService.findOne(payload.sub)
+        return { idUser: user.id, roleUser: user.roles }
     }
 }

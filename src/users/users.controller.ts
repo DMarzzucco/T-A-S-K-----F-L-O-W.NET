@@ -5,8 +5,11 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { Public } from '../auth/decorators/public.decorator';
+import { RolesGuard } from 'src/auth/guards/roles.guard';
+import { Roles } from 'src/auth/decorators/roles.decorator';
 
 @Controller('users')
+@UseGuards(JwtAuthGuard, RolesGuard)
 export class UsersController {
   constructor(private readonly usersService: UsersService) { }
 
@@ -17,8 +20,8 @@ export class UsersController {
     return this.usersService.create(createUserDto);
   }
 
+  @Roles("BASIC")
   @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
   @ApiTags("User")
   @Get()
   findAll() {
@@ -26,7 +29,6 @@ export class UsersController {
   }
 
   @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
   @ApiTags("User")
   @Get(':id')
   findOne(@Param('id') id: string) {
@@ -34,7 +36,6 @@ export class UsersController {
   }
 
   @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
   @ApiTags("User")
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
@@ -42,7 +43,6 @@ export class UsersController {
   }
 
   @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
   @ApiTags("User")
   @Delete(':id')
   remove(@Param('id') id: string) {

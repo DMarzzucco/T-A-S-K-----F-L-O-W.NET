@@ -16,11 +16,11 @@ export class AuthService {
     async generateToken(user: User, res: Response): Promise<any> {
         const payload: PayLoadToken = { roles: user.roles, sub: user.id }
 
-        const expirationDate = 60 * 60;
+        const expirationDate = 24 * 60 * 60;
         const RefreshExpirationDate = 7 * 24 * 60 * 60;
 
         const access_token = this.jwtService.sign(payload, {
-            secret: process.env.SEECRET_KEY,
+            secret: process.env.SECRET_KEY,
             expiresIn: `${expirationDate}`
         })
         const refresh_token = this.jwtService.sign(payload, {
