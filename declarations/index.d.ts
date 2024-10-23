@@ -3,8 +3,4 @@ declare namespace Express {
         idUser: string;
         roleUser: string;
     }
-    interface User {
-        idUser: string;
-        roleUser: string;
-    }
 }

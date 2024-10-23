@@ -28,7 +28,6 @@ export class AuthService {
             expiresIn: `${RefreshExpirationDate}`
         })
         const hashRefresh_token = await bcrypt.hash(refresh_token, 10)
-        console.log ("user id:", user.id)
         await this.userService.updateToken(user.id, hashRefresh_token)
 
         res.cookie("Authentication", access_token, {

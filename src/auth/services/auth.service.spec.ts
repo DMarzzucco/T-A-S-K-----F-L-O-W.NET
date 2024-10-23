@@ -6,6 +6,7 @@ import { AuthController } from '../controllers/auth.controller';
 import { UsersModule } from '../../users/users.module';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
+import { JwtRefreshStrategy } from '../strategies/jwt-refresh.strategy';
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -18,7 +19,6 @@ describe('AuthService', () => {
         JwtModule.registerAsync({
           useFactory: () => {
             return {
-              // secret: "THR123",
               secret:process.env.SEECRET_KEY,
               signOptions: {
                 expiresIn: "10d"
@@ -28,7 +28,7 @@ describe('AuthService', () => {
         })
       ],
     
-      providers: [AuthService, LocalStrategy, JwtStrategy],
+      providers: [AuthService, LocalStrategy, JwtStrategy, JwtRefreshStrategy],
       controllers:[AuthController]
 
     }).compile();

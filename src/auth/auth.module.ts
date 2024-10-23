@@ -15,7 +15,6 @@ import { JwtRefreshStrategy } from './strategies/jwt-refresh.strategy';
     JwtModule.registerAsync({
       useFactory: () => {
         return {
-          // secret: "THR123",
           secret:process.env.SEECRET_KEY,
           signOptions: {
             expiresIn: "10d"

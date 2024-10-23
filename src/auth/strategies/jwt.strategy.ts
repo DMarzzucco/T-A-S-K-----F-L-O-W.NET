@@ -20,10 +20,10 @@ export class JwtStrategy extends PassportStrategy(Strategy, "jwt") {
 
     async validate(payload: PayLoadToken) {
         if (!payload.sub) throw new UnauthorizedException("Token does not conatin a valid user ID")
-
-        // const user = await this.userService.finBy({ key: "id", value: payload.sub });
-        // return { ...user, roles: payload.roles }
         const user = await this.userService.findOne(payload.sub)
-        return { idUser: user.id, roleUser: user.roles }
+        return {
+            idUser: user.id,
+            roleUser: user.roles
+        }
     }
 }

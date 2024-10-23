@@ -23,8 +23,12 @@ export class JwtAuthGuard extends AuthGuard("jwt") implements CanActivate {
     }
 
     try {
-      const result = await super.canActivate(context);
-      return result as boolean;
+      await super.canActivate(context)
+      const user = req.user;
+      req.idUser = user.idUser
+      req.roleUser = user.roleUser
+
+      return true
 
     } catch (err) {
       throw new UnauthorizedException("Token is invalid ")
