@@ -5,15 +5,16 @@ import * as bcrypt from "bcrypt"
 import { PayLoadToken } from '../interface/auth.interface';
 import { User } from '@prisma/client';
 import { Request, Response } from 'express';
+import { AuthServiceProps } from '../interface/authService.interface';
 
 @Injectable()
-export class AuthService {
+export class AuthService implements AuthServiceProps {
     constructor(
         private readonly jwtService: JwtService,
         private readonly userService: UsersService,
     ) { }
 
-    async generateToken(user: User, res: Response): Promise<any> {
+    public async generateToken(user: User, res: Response): Promise<any> {
         const payload: PayLoadToken = { roles: user.roles, sub: user.id }
 
         const expirationDate = 24 * 60 * 60;
@@ -42,7 +43,8 @@ export class AuthService {
         })
         return { access_token, user }
     }
-    async validationUser(username: string, password: string): Promise<User> {
+
+    public async validationUser(username: string, password: string): Promise<User> {
         const user = await this.userService.finBy({ key: "username", value: username })
 
         const match = await bcrypt.compare(password, user.password)
@@ -50,7 +52,8 @@ export class AuthService {
 
         return user
     }
-    async veryfyRefreshToken(refreshToken: string, userId: number): Promise<User> {
+
+    public async veryfyRefreshToken(refreshToken: string, userId: number): Promise<User> {
         const user = await this.userService.findOne(userId)
         if (!user) throw new UnauthorizedException("User not found")
 
@@ -60,7 +63,7 @@ export class AuthService {
         return user
     }
 
-    async profile(req: Request) {
+    public async profile(req: Request): Promise<{ username: string }> {
         const token = req.cookies["Authentication"]
         if (!token) throw new UnauthorizedException("No token found in cookies")
 
@@ -70,8 +73,8 @@ export class AuthService {
         const user = await this.userService.findOne(userid)
         return ({ username: user.username })
     }
-
-    async logOut(userId: number, res: Response) {
+    
+    public async logOut(userId: number, res: Response): Promise<any> {
         await this.userService.updateToken(userId, null)
 
         res.cookie("Authenticated", "", {
