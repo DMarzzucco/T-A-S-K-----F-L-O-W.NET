@@ -1,4 +1,5 @@
 using TASK_FLOW.NET.Configuration;
+using TASK_FLOW.NET.Configuration.Swagger;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.

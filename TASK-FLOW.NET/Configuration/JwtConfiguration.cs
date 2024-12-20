@@ -15,6 +15,7 @@ namespace TASK_FLOW.NET.Configuration
             {
                 cfg.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 cfg.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+
             }).AddJwtBearer(cfg =>
             {
                 var signgKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));

@@ -1,7 +1,8 @@
 ﻿using Microsoft.OpenApi.Models;
 using System.Reflection;
+using TASK_FLOW.NET.Configuration.Swagger.Filter;
 
-namespace TASK_FLOW.NET.Configuration
+namespace TASK_FLOW.NET.Configuration.Swagger
 {
     public static class SwaggerConfigurations
     {
@@ -16,7 +17,8 @@ namespace TASK_FLOW.NET.Configuration
                     Title = "T A S K - F L O W",
                     Description = "Some description to refomrs"
                 });
-                //add filter to implement atributes examples in the models and dtos
+                op.SchemaFilter<SwaggerSchemaExampleFilter>();
+
                 var xmLfilesName = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 op.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmLfilesName));
             });

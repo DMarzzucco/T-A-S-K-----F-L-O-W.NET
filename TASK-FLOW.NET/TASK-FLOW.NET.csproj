@@ -26,9 +26,6 @@
 
 	<ItemGroup>
 	  <Folder Include="Auth\" />
-	  <Folder Include="Task\" />
-	  <Folder Include="Project\" />
-	  <Folder Include="User\" />
 	</ItemGroup>
 
 </Project>
