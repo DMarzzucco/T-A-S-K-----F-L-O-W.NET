@@ -16,5 +16,56 @@
         <member name="M:TASK_FLOW.NET.Migrations.Initial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="M:TASK_FLOW.NET.User.Controller.UserController.RegisterUser(TASK_FLOW.NET.User.DTO.CreateUserDTO)">
+            <summary>
+            Register a new User
+            </summary>
+            <param name="body"></param>
+            <returns>A new User registered</returns>
+            <response code="201">User Registered</response>
+            <response code="409">Conflict between repeat dates</response>
+        </member>
+        <member name="M:TASK_FLOW.NET.User.Controller.UserController.GetAllUser">
+            <summary>
+            Get All User
+            </summary>
+            <returns>A List of All Users</returns>
+            <response code="200">List of User</response>
+            <response code="400">Bad Request</response>
+        </member>
+        <member name="M:TASK_FLOW.NET.User.Controller.UserController.GetUserById(System.Int32)">
+            <summary>
+            Get User by Id
+            </summary>
+            <param name="id"></param>
+            <returns>Get a user according his Id</returns>
+            <response code="200">User</response>
+            <response code="404">User not Found</response>
+        </member>
+        <member name="M:TASK_FLOW.NET.User.Controller.UserController.UpdateUser(System.Int32,TASK_FLOW.NET.User.DTO.UpdateUserDTO)">
+            <summary>
+            Update User 
+            </summary>
+            <param name="id"></param>
+            <param name="body"></param>
+            <returns>Update a user according his id </returns>
+            <response code="204">User Updated</response>
+            <response code="404">User not found</response>
+        </member>
+        <member name="M:TASK_FLOW.NET.User.Controller.UserController.DelteUser(System.Int32)">
+            <summary>
+            Delte User
+            </summary>
+            <param name="id"></param>
+            <returns>Delete a User according his Id</returns>
+            <response code="204">User Deleted</response>
+            <response code="404">User Not Found</response>
+        </member>
+        <member name="M:TASK_FLOW.NET.User.Controller.UserProjectController.RegisterUserAndProject(TASK_FLOW.NET.User.DTO.UserProjectDTO)">
+            <summary>
+            Relation Project
+            </summary>
+            <returns>Relation between a User and a Project with a Access Level</returns>
+        </member>
     </members>
 </doc>

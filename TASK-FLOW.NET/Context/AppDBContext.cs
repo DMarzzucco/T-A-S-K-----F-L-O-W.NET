@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TASK_FLOW.NET.Context.Configuration;
 using TASK_FLOW.NET.Project.Model;
-using TASK_FLOW.NET.Task.Model;
+using TASK_FLOW.NET.Tasks.Model;
 using TASK_FLOW.NET.User.Model;
 
 namespace TASK_FLOW.NET.Context

@@ -11,7 +11,7 @@ using TASK_FLOW.NET.Context;
 namespace TASK_FLOW.NET.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20241220190000_Initial")]
+    [Migration("20241221120345_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -45,7 +45,7 @@ namespace TASK_FLOW.NET.Migrations
                     b.ToTable("Project", (string)null);
                 });
 
-            modelBuilder.Entity("TASK_FLOW.NET.Task.Model.TaskModel", b =>
+            modelBuilder.Entity("TASK_FLOW.NET.Tasks.Model.TaskModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -161,10 +161,10 @@ namespace TASK_FLOW.NET.Migrations
                     b.ToTable("User", (string)null);
                 });
 
-            modelBuilder.Entity("TASK_FLOW.NET.Task.Model.TaskModel", b =>
+            modelBuilder.Entity("TASK_FLOW.NET.Tasks.Model.TaskModel", b =>
                 {
                     b.HasOne("TASK_FLOW.NET.Project.Model.ProjectModel", "Project")
-                        .WithMany("Task")
+                        .WithMany("Tasks")
                         .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -193,7 +193,7 @@ namespace TASK_FLOW.NET.Migrations
 
             modelBuilder.Entity("TASK_FLOW.NET.Project.Model.ProjectModel", b =>
                 {
-                    b.Navigation("Task");
+                    b.Navigation("Tasks");
 
                     b.Navigation("UsersIncludes");
                 });

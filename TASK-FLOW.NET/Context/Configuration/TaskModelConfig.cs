@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using TASK_FLOW.NET.Task.Enums;
-using TASK_FLOW.NET.Task.Model;
+using TASK_FLOW.NET.Tasks.Enums;
+using TASK_FLOW.NET.Tasks.Model;
 using TASK_FLOW.NET.Utils.Helpers;
 
 namespace TASK_FLOW.NET.Context.Configuration

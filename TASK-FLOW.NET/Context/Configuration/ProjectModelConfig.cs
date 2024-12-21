@@ -19,7 +19,7 @@ namespace TASK_FLOW.NET.Context.Configuration
             .HasForeignKey(p => p.ProjectId)
             .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasMany(e => e.Task)
+            builder.HasMany(e => e.Tasks)
             .WithOne(p => p.Project)
             .HasForeignKey(p => p.ProjectId)
             .OnDelete(DeleteBehavior.Cascade);

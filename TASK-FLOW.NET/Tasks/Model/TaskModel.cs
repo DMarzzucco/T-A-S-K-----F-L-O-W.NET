@@ -1,9 +1,9 @@
 ﻿using Swashbuckle.AspNetCore.Annotations;
 using TASK_FLOW.NET.Configuration.Swagger.Attributes;
 using TASK_FLOW.NET.Project.Model;
-using TASK_FLOW.NET.Task.Enums;
+using TASK_FLOW.NET.Tasks.Enums;
 
-namespace TASK_FLOW.NET.Task.Model
+namespace TASK_FLOW.NET.Tasks.Model
 {
     public class TaskModel
     {

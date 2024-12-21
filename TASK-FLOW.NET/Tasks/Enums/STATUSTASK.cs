@@ -1,4 +1,4 @@
-﻿namespace TASK_FLOW.NET.Task.Enums
+﻿namespace TASK_FLOW.NET.Tasks.Enums
 {
     public enum STATUSTASK
     {

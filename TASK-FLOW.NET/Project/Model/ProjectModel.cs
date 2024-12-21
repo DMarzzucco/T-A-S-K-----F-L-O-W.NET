@@ -1,6 +1,6 @@
 ﻿using Swashbuckle.AspNetCore.Annotations;
 using TASK_FLOW.NET.Configuration.Swagger.Attributes;
-using TASK_FLOW.NET.Task.Model;
+using TASK_FLOW.NET.Tasks.Model;
 using TASK_FLOW.NET.User.Model;
 
 namespace TASK_FLOW.NET.Project.Model
@@ -22,6 +22,6 @@ namespace TASK_FLOW.NET.Project.Model
         public ICollection<UserProjectModel> UsersIncludes { get; set; } = new List<UserProjectModel>();
 
         [SwaggerIgnore]
-        public ICollection<TaskModel> Task { get; set; } = new List<TaskModel>();
+        public ICollection<TaskModel> Tasks { get; set; } = new List<TaskModel>();
     }
 }
