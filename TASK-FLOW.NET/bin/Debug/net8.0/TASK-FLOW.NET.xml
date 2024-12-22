@@ -4,6 +4,31 @@
         <name>TASK-FLOW.NET</name>
     </assembly>
     <members>
+        <member name="M:TASK_FLOW.NET.Auth.Controller.AuthController.Login(TASK_FLOW.NET.Auth.DTO.AuthPropsDTO)">
+            <summary>
+            Login User 
+            </summary>
+            <param name="body"></param>
+            <returns>User Token</returns>
+            <response code="200">Ok</response>
+            <response code="401">Unauthorized</response>
+        </member>
+        <member name="M:TASK_FLOW.NET.Auth.Controller.AuthController.GetProfile">
+            <summary>
+            Get Profile
+            </summary>
+            <returns>Return the Username of User</returns>
+            <response code="200">Ok</response>
+            <response code="401">Unauthorized</response>
+        </member>
+        <member name="M:TASK_FLOW.NET.Auth.Controller.AuthController.LogOut">
+            <summary>
+            Log Out
+            </summary>
+            <returns>200</returns>
+            <response code="200">Ok</response>
+            <response code="401">Unauthorized</response>
+        </member>
         <member name="T:TASK_FLOW.NET.Migrations.Initial">
             <inheritdoc />
         </member>
@@ -66,6 +91,8 @@
             Relation Project
             </summary>
             <returns>Relation between a User and a Project with a Access Level</returns>
+            <response code="200">Relation finished successfully</response>
+            <response code="400">Relation Faild</response>
         </member>
     </members>
 </doc>

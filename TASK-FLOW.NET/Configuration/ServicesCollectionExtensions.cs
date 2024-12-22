@@ -1,4 +1,10 @@
-﻿using TASK_FLOW.NET.User.Repository;
+﻿using TASK_FLOW.NET.Auth.Cookie.Service;
+using TASK_FLOW.NET.Auth.Cookie.Service.Interface;
+using TASK_FLOW.NET.Auth.JWT.Service;
+using TASK_FLOW.NET.Auth.JWT.Service.Interface;
+using TASK_FLOW.NET.Auth.Service;
+using TASK_FLOW.NET.Auth.Service.Interface;
+using TASK_FLOW.NET.User.Repository;
 using TASK_FLOW.NET.User.Repository.Interface;
 using TASK_FLOW.NET.User.Service;
 using TASK_FLOW.NET.User.Service.Interface;
@@ -12,12 +18,19 @@ namespace TASK_FLOW.NET.Configuration
         {
             //Gloabl Filter Exceptions
             services.AddScoped<GlobalFilterExceptions>();
+            //JWT Services
+            services.AddScoped<ITokenService, TokenService>();
+            // Cookie Service
+            services.AddScoped<ICookieService, CookieService>();
+            //Auth Services
+            services.AddScoped<IAuthService, AuthService>();
             //User Services
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
             //UserProject Services
             services.AddScoped<IUserProjectRepository, UserProjectRepository>();
-
+            //Project Services
+            //Task Services
             return services;
         }
     }
