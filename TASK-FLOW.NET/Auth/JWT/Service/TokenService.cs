@@ -8,13 +8,31 @@ using TASK_FLOW.NET.Auth.JWT.DTO;
 
 namespace TASK_FLOW.NET.Auth.JWT.Service
 {
-    
+
     public class TokenService : ITokenService
     {
         private readonly string _secretKey;
-        public TokenService(IConfiguration config)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public TokenService(IConfiguration config, IHttpContextAccessor httpContextAccessor)
         {
             this._secretKey = config.GetSection("JwtSettings").GetSection("secretKey").ToString();
+            this._httpContextAccessor = httpContextAccessor;
+        }
+
+        public int GetIdFromToken()
+        {
+            var token = this._httpContextAccessor.HttpContext.Request.Cookies["Authentication"];
+            if (token == null) throw new UnauthorizedAccessException("Token not found");
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var jwtToken = tokenHandler.ReadToken(token) as JwtSecurityToken;
+
+            var Id = int.Parse(jwtToken?.Claims.FirstOrDefault(c => c.Type == "sub")?.Value);
+            if (Id == null) throw new UnauthorizedAccessException("Invalid Token");
+
+            return Id;
+
         }
 
         public TokenPair GenerateToken(UsersModel user)
@@ -27,22 +45,10 @@ namespace TASK_FLOW.NET.Auth.JWT.Service
                 new Claim("sub", user.Id.ToString()),
                 new Claim ("rol", user.Id.ToString())
             };
-            var accessTokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddDays(2),
-                SigningCredentials = signingCredential
-            };
-            var refreshTokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddDays(5),
-                SigningCredentials = signingCredential
-            };
-            var tokenHandler = new JwtSecurityTokenHandler();
 
-            var accessToken = tokenHandler.WriteToken(tokenHandler.CreateToken(accessTokenDescriptor));
-            var refreshToken = tokenHandler.WriteToken(tokenHandler.CreateToken(refreshTokenDescriptor));
+            var accessToken = CreateToken(claims, signingCredential, DateTime.UtcNow.AddDays(2));
+            var refreshToken = CreateToken(claims, signingCredential, DateTime.UtcNow.AddDays(5));
+
             var refreshTokenHash = BCrypt.Net.BCrypt.HashPassword(refreshToken);
 
             return new TokenPair
@@ -51,34 +57,38 @@ namespace TASK_FLOW.NET.Auth.JWT.Service
                 RefreshToken = refreshToken,
                 RefreshTokenHasher = refreshTokenHash
             };
-
         }
 
-        public bool ValidateRefreshToken(string refreshToken, string storedRefreshToken)
+        private string CreateToken(IEnumerable<Claim> claims, SigningCredentials signingCredentials, DateTime expiration)
         {
-            return BCrypt.Net.BCrypt.Verify(refreshToken, storedRefreshToken);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(claims),
+                Expires = expiration,
+                SigningCredentials = signingCredentials
+            };
+            var tokenHandler = new JwtSecurityTokenHandler();
+            return tokenHandler.WriteToken(tokenHandler.CreateToken(tokenDescriptor));
         }
-        public int ValidateToken(string token, string claimType)
+
+        public void ValidateToken(string token)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var keyBytes = Encoding.UTF8.GetBytes(this._secretKey);
-            var parameters = new TokenValidationParameters
+
+            var principal = new TokenValidationParameters
             {
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = new SymmetricSecurityKey(keyBytes),
-                ValidateIssuer = false, 
+                ValidateIssuer = false,
                 ValidateAudience = false,
-                ValidateLifetime = true
+                ValidateLifetime = true,
+                ClockSkew = TimeSpan.Zero
             };
 
-            var claimsPrincipal = tokenHandler.ValidateToken(token, parameters, out _);
-            var claimValue = claimsPrincipal.Claims.FirstOrDefault(c => c.Type == claimType)?.Value;
-
-            if (string.IsNullOrEmpty(claimValue)) throw new UnauthorizedAccessException("Invalid Token");
-
-            return int.Parse(claimValue);
+            tokenHandler.ValidateToken(token, principal, out _);
         }
 
     }
-   
+
 }

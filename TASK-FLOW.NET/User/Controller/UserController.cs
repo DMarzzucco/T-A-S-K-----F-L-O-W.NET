@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TASK_FLOW.NET.Auth.Attributes;
 using TASK_FLOW.NET.User.DTO;
 using TASK_FLOW.NET.User.Model;
 using TASK_FLOW.NET.User.Service.Interface;
@@ -6,6 +7,7 @@ using TASK_FLOW.NET.User.Service.Interface;
 namespace TASK_FLOW.NET.User.Controller
 {
     [Route("api/[controller]")]
+    [JwtAuth]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -23,6 +25,7 @@ namespace TASK_FLOW.NET.User.Controller
         /// <returns>A new User registered</returns>
         /// <response code="201">User Registered</response>
         /// <response code="409">Conflict between repeat dates</response>
+        [AllowAnonymousAccess]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]

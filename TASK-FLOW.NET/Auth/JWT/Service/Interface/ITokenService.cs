@@ -6,7 +6,7 @@ namespace TASK_FLOW.NET.Auth.JWT.Service.Interface
     public interface ITokenService
     {
         TokenPair GenerateToken(UsersModel user);
-        int ValidateToken(string token, string claimtype);
-        bool ValidateRefreshToken(string refreshToken, string storedRefreshToken);
+        void ValidateToken(string token);
+        int GetIdFromToken();
     }
 }

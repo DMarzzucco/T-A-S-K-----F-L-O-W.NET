@@ -1,5 +1,6 @@
 ﻿using TASK_FLOW.NET.Auth.Cookie.Service;
 using TASK_FLOW.NET.Auth.Cookie.Service.Interface;
+using TASK_FLOW.NET.Auth.Filters;
 using TASK_FLOW.NET.Auth.JWT.Service;
 using TASK_FLOW.NET.Auth.JWT.Service.Interface;
 using TASK_FLOW.NET.Auth.Service;
@@ -22,8 +23,12 @@ namespace TASK_FLOW.NET.Configuration
             services.AddScoped<ITokenService, TokenService>();
             // Cookie Service
             services.AddScoped<ICookieService, CookieService>();
+            //Jwt Auth Filter 
+            services.AddScoped<JwtAuthFilter>();
             //Auth Services
             services.AddScoped<IAuthService, AuthService>();
+            //Local AuthService
+            services.AddScoped<LocalAuthFilter>();
             //User Services
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
