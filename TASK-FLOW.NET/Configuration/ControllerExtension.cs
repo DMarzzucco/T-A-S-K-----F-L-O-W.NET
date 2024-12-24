@@ -8,7 +8,7 @@ namespace TASK_FLOW.NET.Configuration
         {
             service.AddControllers(e =>
             {
-                e.Filters.Add<GlobalFilterExceptions>();
+                e.Filters.Add(typeof (GlobalFilterExceptions));
             });
             return service;
         }

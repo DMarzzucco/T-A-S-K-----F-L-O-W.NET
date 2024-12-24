@@ -85,6 +85,52 @@
     ]
   },
   {
+    "ContainingType": "TASK_FLOW.NET.Project.Controller.ProjectController",
+    "Method": "CreateProject",
+    "RelativePath": "api/Project",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "body",
+        "Type": "TASK_FLOW.NET.Project.DTO.CreateProjectDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TASK_FLOW.NET.User.Model.UserProjectModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TASK_FLOW.NET.Project.Controller.ProjectController",
+    "Method": "GetAllProject",
+    "RelativePath": "api/Project",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[TASK_FLOW.NET.Project.Model.ProjectModel, TASK-FLOW.NET, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "TASK_FLOW.NET.User.Controller.UserController",
     "Method": "RegisterUser",
     "RelativePath": "api/User",

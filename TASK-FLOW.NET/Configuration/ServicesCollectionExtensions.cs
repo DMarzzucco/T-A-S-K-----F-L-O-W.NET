@@ -5,6 +5,10 @@ using TASK_FLOW.NET.Auth.JWT.Service;
 using TASK_FLOW.NET.Auth.JWT.Service.Interface;
 using TASK_FLOW.NET.Auth.Service;
 using TASK_FLOW.NET.Auth.Service.Interface;
+using TASK_FLOW.NET.Project.Repository;
+using TASK_FLOW.NET.Project.Repository.Interface;
+using TASK_FLOW.NET.Project.Service;
+using TASK_FLOW.NET.Project.Service.Interface;
 using TASK_FLOW.NET.User.Repository;
 using TASK_FLOW.NET.User.Repository.Interface;
 using TASK_FLOW.NET.User.Service;
@@ -25,6 +29,8 @@ namespace TASK_FLOW.NET.Configuration
             services.AddScoped<ICookieService, CookieService>();
             //Jwt Auth Filter 
             services.AddScoped<JwtAuthFilter>();
+            // Roles Validations
+            services.AddScoped<RolesValidationFilters>();
             //Auth Services
             services.AddScoped<IAuthService, AuthService>();
             //Local AuthService
@@ -35,6 +41,8 @@ namespace TASK_FLOW.NET.Configuration
             //UserProject Services
             services.AddScoped<IUserProjectRepository, UserProjectRepository>();
             //Project Services
+            services.AddScoped<IProjectRepository, ProjectRepository>();
+            services.AddScoped<IProjectService, ProjectService>();
             //Task Services
             return services;
         }
