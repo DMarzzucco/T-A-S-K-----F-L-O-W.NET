@@ -41,6 +41,51 @@
         <member name="M:TASK_FLOW.NET.Migrations.Initial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="M:TASK_FLOW.NET.Project.Controller.ProjectController.CreateProject(TASK_FLOW.NET.Project.DTO.CreateProjectDTO)">
+            <summary>
+            Create Project
+            </summary>
+            <param name="body"></param>
+            <returns>Save a Project</returns>
+            <response code= "201">Created</response>
+            <response code= "400">BadRequest</response>
+        </member>
+        <member name="M:TASK_FLOW.NET.Project.Controller.ProjectController.GetAllProject">
+            <summary>
+            Get All Project
+            </summary>
+            <returns>List of Project</returns>
+            <response code= "200">Ok</response>
+            <response code= "400">Bad Request</response>
+        </member>
+        <member name="M:TASK_FLOW.NET.Project.Controller.ProjectController.GetProjectById(System.Int32)">
+            <summary>
+            Get project by id
+            </summary>
+            <param name="id"></param>
+            <returns>Return a project according his id</returns>
+            <response code= "200">Ok</response>
+            <response code= "404">Not found</response>
+        </member>
+        <member name="M:TASK_FLOW.NET.Project.Controller.ProjectController.UpdateProject(System.Int32,TASK_FLOW.NET.Project.DTO.UpdateProjectDTO)">
+            <summary>
+            Update Project
+            </summary>
+            <param name="id"></param>
+            <param name="body"></param>
+            <returns>Update a Project</returns>
+            <response code= "204">No content</response>
+            <response code= "404">Not found</response>
+        </member>
+        <member name="M:TASK_FLOW.NET.Project.Controller.ProjectController.DeleteProject(System.Int32)">
+            <summary>
+            Delete Project
+            </summary>
+            <param name="id"></param>
+            <returns>Delete a project</returns>
+            <response code= "204">No Content</response>
+            <response code= "404">Not found</response>
+        </member>
         <member name="M:TASK_FLOW.NET.User.Controller.UserController.RegisterUser(TASK_FLOW.NET.User.DTO.CreateUserDTO)">
             <summary>
             Register a new User

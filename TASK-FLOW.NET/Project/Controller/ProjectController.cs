@@ -1,12 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TASK_FLOW.NET.Auth.Attributes;
 using TASK_FLOW.NET.Project.DTO;
 using TASK_FLOW.NET.Project.Model;
 using TASK_FLOW.NET.Project.Service.Interface;
+using TASK_FLOW.NET.User.Enums;
 using TASK_FLOW.NET.User.Model;
 
 namespace TASK_FLOW.NET.Project.Controller
 {
     [Route("api/[controller]")]
+    [JwtAuth]
+    [AuthRoles]
     [ApiController]
     public class ProjectController : ControllerBase
     {
@@ -22,6 +26,7 @@ namespace TASK_FLOW.NET.Project.Controller
         /// <returns>Save a Project</returns>
         /// <response code= "201">Created</response>
         /// <response code= "400">BadRequest</response>
+        [Roles(ROLES.BASIC)]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -37,6 +42,7 @@ namespace TASK_FLOW.NET.Project.Controller
         /// <returns>List of Project</returns>
         /// <response code= "200">Ok</response>
         /// <response code= "400">Bad Request</response>
+        [Roles(ROLES.BASIC)]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -52,6 +58,7 @@ namespace TASK_FLOW.NET.Project.Controller
         /// <returns>Return a project according his id</returns>
         /// <response code= "200">Ok</response>
         /// <response code= "404">Not found</response>
+        [Roles(ROLES.BASIC)]
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -68,6 +75,7 @@ namespace TASK_FLOW.NET.Project.Controller
         /// <returns>Update a Project</returns>
         /// <response code= "204">No content</response>
         /// <response code= "404">Not found</response>
+        [Roles(ROLES.BASIC)]
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -84,6 +92,7 @@ namespace TASK_FLOW.NET.Project.Controller
         /// <returns>Delete a project</returns>
         /// <response code= "204">No Content</response>
         /// <response code= "404">Not found</response>
+        [Roles(ROLES.BASIC)]
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

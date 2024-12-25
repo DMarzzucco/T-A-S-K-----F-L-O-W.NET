@@ -37,7 +37,10 @@ namespace TASK_FLOW.NET.User.Repository
 
         public async Task<UsersModel?> FindByIdAsync(int id)
         {
-            return await this._context.UserModel.FindAsync(id);
+            return await this._context.UserModel
+                .Include(u => u.ProjectIncludes)
+                .ThenInclude(pi => pi.Project)
+                .FirstOrDefaultAsync(u => u.Id == id);
         }
 
         public async Task<UsersModel?> FindByKey(string key, object value)
