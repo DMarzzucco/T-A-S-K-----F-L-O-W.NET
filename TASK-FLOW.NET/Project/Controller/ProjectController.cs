@@ -33,7 +33,7 @@ namespace TASK_FLOW.NET.Project.Controller
         public async Task<ActionResult<UserProjectModel>> CreateProject([FromBody] CreateProjectDTO body)
         {
             var project = await this._service.SaveProject(body);
-            return Ok(project);
+            return CreatedAtAction(nameof(GetAllProject), new { id = project.Id }, project);
         }
 
         /// <summary>

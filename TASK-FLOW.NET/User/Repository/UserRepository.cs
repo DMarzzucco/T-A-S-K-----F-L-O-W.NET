@@ -34,14 +34,37 @@ namespace TASK_FLOW.NET.User.Repository
         {
             return await this._context.UserModel.FindAsync();
         }
+        public async Task<IEnumerable<UsersModel>> ToListAsync()
+        {
+            return await this._context.UserModel.Select(u => new UsersModel
+            {
+                Id = u.Id,
+                First_name = u.First_name,
+                Last_name = u.Last_name,
+                Age = u.Age,
+                Username = u.Username,
+                Email = u.Email,
+                Password = u.Password,
+                Roles = u.Roles,
+                RefreshToken = u.RefreshToken,
+                ProjectIncludes = new List<UserProjectModel>()
+            }).ToListAsync();
+        }
 
         public async Task<UsersModel?> FindByIdAsync(int id)
         {
-            return await this._context.UserModel
+            var user = await this._context.UserModel
                 .Include(u => u.ProjectIncludes)
                 .ThenInclude(pi => pi.Project)
                 .FirstOrDefaultAsync(u => u.Id == id);
+
+            if (user != null && user.ProjectIncludes != null && user.ProjectIncludes.Any())
+                return user;
+
+            user.ProjectIncludes = new List<UserProjectModel>();
+            return user;
         }
+
 
         public async Task<UsersModel?> FindByKey(string key, object value)
         {
@@ -63,10 +86,6 @@ namespace TASK_FLOW.NET.User.Repository
             await this._context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<UsersModel>> ToListAsync()
-        {
-            return await this._context.UserModel.ToListAsync();
-        }
 
         public async Task UpdateAsync(UsersModel user)
         {

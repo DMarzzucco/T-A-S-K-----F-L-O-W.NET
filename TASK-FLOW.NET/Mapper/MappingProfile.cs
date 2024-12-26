@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using TASK_FLOW.NET.Project.DTO;
 using TASK_FLOW.NET.Project.Model;
+using TASK_FLOW.NET.Tasks.DTOs;
+using TASK_FLOW.NET.Tasks.Model;
 using TASK_FLOW.NET.User.DTO;
 using TASK_FLOW.NET.User.Model;
 
@@ -18,7 +20,9 @@ namespace TASK_FLOW.NET.Mapper
             //Project Mapper
             CreateMap<CreateProjectDTO, ProjectModel>();
             CreateMap<UpdateProjectDTO, ProjectModel>();
-
+            //Task Mapper
+            CreateMap<CreateTaskDTO, TaskModel>();
+            CreateMap<UpdateTaskDTO, TaskModel>();
         }
     }
 }

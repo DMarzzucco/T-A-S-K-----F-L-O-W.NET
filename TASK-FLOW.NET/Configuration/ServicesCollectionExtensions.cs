@@ -9,6 +9,10 @@ using TASK_FLOW.NET.Project.Repository;
 using TASK_FLOW.NET.Project.Repository.Interface;
 using TASK_FLOW.NET.Project.Service;
 using TASK_FLOW.NET.Project.Service.Interface;
+using TASK_FLOW.NET.Tasks.Repository;
+using TASK_FLOW.NET.Tasks.Repository.Interface;
+using TASK_FLOW.NET.Tasks.Service;
+using TASK_FLOW.NET.Tasks.Service.Interface;
 using TASK_FLOW.NET.User.Repository;
 using TASK_FLOW.NET.User.Repository.Interface;
 using TASK_FLOW.NET.User.Service;
@@ -44,6 +48,9 @@ namespace TASK_FLOW.NET.Configuration
             services.AddScoped<IProjectRepository, ProjectRepository>();
             services.AddScoped<IProjectService, ProjectService>();
             //Task Services
+            services.AddScoped<ITaskRepository, TaskRepository>();
+            services.AddScoped<ITaskService, TaskService>();
+
             return services;
         }
     }

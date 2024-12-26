@@ -2,6 +2,8 @@
 using TASK_FLOW.NET.Context;
 using TASK_FLOW.NET.Project.Model;
 using TASK_FLOW.NET.Project.Repository.Interface;
+using TASK_FLOW.NET.Tasks.Model;
+using TASK_FLOW.NET.User.Model;
 
 namespace TASK_FLOW.NET.Project.Repository
 {
@@ -21,12 +23,28 @@ namespace TASK_FLOW.NET.Project.Repository
 
         public async Task<ProjectModel?> findByIdAsync(int id)
         {
-            return await this._context.ProjectModel.FindAsync(id);
+            var project = await this._context.ProjectModel
+                .Include(u => u.UsersIncludes)
+                .ThenInclude(ui => ui.User)
+                .FirstOrDefaultAsync(p => p.Id == id);
+            if (project != null && project.UsersIncludes != null && project.UsersIncludes.Any())
+                return project;
+
+            project.UsersIncludes = new List<UserProjectModel>();
+            return project;
         }
 
         public async Task<IEnumerable<ProjectModel>> ListOfProjectAsync()
         {
-            return await this._context.ProjectModel.ToListAsync();
+            return await this._context.ProjectModel.Select(u => new ProjectModel
+            {
+                Id = u.Id,
+                Name = u.Name,
+                Description = u.Description,
+                Tasks = new List<TaskModel>(),
+                UsersIncludes = new List<UserProjectModel>()
+
+            }).ToListAsync();
         }
 
         public async Task SaveProjectAsync(ProjectModel body)
