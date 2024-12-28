@@ -59,7 +59,7 @@ namespace TASK_FLOW.NET.User.Controller
         /// <returns>Get a user according his Id</returns>
         /// <response code="200">User</response>
         /// <response code="404">User not Found</response>
-        [Roles(ROLES.ADMIN)]
+        [Roles(ROLES.BASIC)]
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

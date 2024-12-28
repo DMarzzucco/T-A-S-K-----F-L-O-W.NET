@@ -1,11 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TASK_FLOW.NET.Auth.Attributes;
 using TASK_FLOW.NET.Tasks.DTOs;
 using TASK_FLOW.NET.Tasks.Model;
 using TASK_FLOW.NET.Tasks.Service.Interface;
+using TASK_FLOW.NET.User.Enums;
 
 namespace TASK_FLOW.NET.Tasks.Controller
 {
     [Route("api/[controller]")]
+    [JwtAuth]
+    [AuthRoles]
+    [AuthAccessLevel]
     [ApiController]
     public class TaskController : ControllerBase
     {
@@ -24,6 +29,8 @@ namespace TASK_FLOW.NET.Tasks.Controller
         /// <returns>Save a task</returns>
         /// <response code = "201">Created</response>
         /// <response code = "400">Bad Request</response>
+        [Roles(ROLES.BASIC)]
+        [AccessLevel(ACCESSLEVEL.MAINTAINER)]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -39,6 +46,8 @@ namespace TASK_FLOW.NET.Tasks.Controller
         /// <returns>List of all tasks</returns>
         /// <response code = "200">Ok</response>
         /// <response code = "400">Bad Request</response>
+        [Roles(ROLES.BASIC)]
+        [AccessLevel(ACCESSLEVEL.OWNER)]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -54,6 +63,8 @@ namespace TASK_FLOW.NET.Tasks.Controller
         /// <returns>Return a task according his Id number</returns>
         /// <response code = "200">Ok</response>
         /// <response code = "404">Not found</response>
+        [Roles(ROLES.BASIC)]
+        [AccessLevel(ACCESSLEVEL.MAINTAINER)]
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -70,6 +81,8 @@ namespace TASK_FLOW.NET.Tasks.Controller
         /// <returns>Nothing</returns>
         /// <response code = "204">No content</response>
         /// <response code = "404">Not found</response>
+        [Roles(ROLES.BASIC)]
+        [AccessLevel(ACCESSLEVEL.MAINTAINER)]
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -86,6 +99,8 @@ namespace TASK_FLOW.NET.Tasks.Controller
         /// <returns>No Content</returns>
         /// <response code = "204">No content</response>
         /// <response code = "404">Not found</response>
+        [Roles(ROLES.BASIC)]
+        [AccessLevel(ACCESSLEVEL.MAINTAINER)]
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

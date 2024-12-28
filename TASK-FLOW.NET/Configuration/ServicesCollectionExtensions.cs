@@ -35,6 +35,8 @@ namespace TASK_FLOW.NET.Configuration
             services.AddScoped<JwtAuthFilter>();
             // Roles Validations
             services.AddScoped<RolesValidationFilters>();
+            //Access Level Validation
+            services.AddScoped<AccessLevelAuth>();
             //Auth Services
             services.AddScoped<IAuthService, AuthService>();
             //Local AuthService
@@ -44,6 +46,7 @@ namespace TASK_FLOW.NET.Configuration
             services.AddScoped<IUserService, UserService>();
             //UserProject Services
             services.AddScoped<IUserProjectRepository, UserProjectRepository>();
+            services.AddScoped<IUserProjectService, UserProjectService>();
             //Project Services
             services.AddScoped<IProjectRepository, ProjectRepository>();
             services.AddScoped<IProjectService, ProjectService>();

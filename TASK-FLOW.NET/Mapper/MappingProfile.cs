@@ -17,6 +17,7 @@ namespace TASK_FLOW.NET.Mapper
             CreateMap<UpdateUserDTO, UsersModel>();
             // User Project Mapper
             CreateMap<UserProjectDTO, UserProjectModel>();
+            CreateMap<UpdateUserProjectDTO, UserProjectModel>();
             //Project Mapper
             CreateMap<CreateProjectDTO, ProjectModel>();
             CreateMap<UpdateProjectDTO, ProjectModel>();
