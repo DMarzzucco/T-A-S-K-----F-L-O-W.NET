@@ -12,6 +12,5 @@ namespace TASK_FLOW.NET.User.Service.Interface
         Task DeleteUser(int id);
         Task<UsersModel> FindByAuth(string key, object value);
         Task<UsersModel> UpdateToken(int id, string RefreshToken);
-        Task<UserProjectModel> RelationProject(UserProjectDTO body);
     }
 }

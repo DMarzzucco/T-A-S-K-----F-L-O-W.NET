@@ -100,7 +100,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "TASK_FLOW.NET.User.Model.UserProjectModel",
+        "Type": "TASK_FLOW.NET.UserProject.Model.UserProjectModel",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -588,7 +588,7 @@
     ]
   },
   {
-    "ContainingType": "TASK_FLOW.NET.User.Controller.UserProjectController",
+    "ContainingType": "TASK_FLOW.NET.UserProject.Controllers.UserProjectController",
     "Method": "RegisterUserAndProject",
     "RelativePath": "api/UserProject",
     "HttpMethod": "POST",
@@ -597,7 +597,7 @@
     "Parameters": [
       {
         "Name": "body",
-        "Type": "TASK_FLOW.NET.User.DTO.UserProjectDTO",
+        "Type": "TASK_FLOW.NET.UserProject.DTO.UserProjectDTO",
         "IsRequired": true
       }
     ],
@@ -619,7 +619,7 @@
     ]
   },
   {
-    "ContainingType": "TASK_FLOW.NET.User.Controller.UserProjectController",
+    "ContainingType": "TASK_FLOW.NET.UserProject.Controllers.UserProjectController",
     "Method": "GetALLUP",
     "RelativePath": "api/UserProject",
     "HttpMethod": "GET",
@@ -628,7 +628,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[TASK_FLOW.NET.User.Model.UserProjectModel, TASK-FLOW.NET, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[TASK_FLOW.NET.UserProject.Model.UserProjectModel, TASK-FLOW.NET, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -639,7 +639,7 @@
     ]
   },
   {
-    "ContainingType": "TASK_FLOW.NET.User.Controller.UserProjectController",
+    "ContainingType": "TASK_FLOW.NET.UserProject.Controllers.UserProjectController",
     "Method": "GetUPbyId",
     "RelativePath": "api/UserProject/{id}",
     "HttpMethod": "GET",
@@ -654,7 +654,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "TASK_FLOW.NET.User.Model.UserProjectModel",
+        "Type": "TASK_FLOW.NET.UserProject.Model.UserProjectModel",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -665,7 +665,7 @@
     ]
   },
   {
-    "ContainingType": "TASK_FLOW.NET.User.Controller.UserProjectController",
+    "ContainingType": "TASK_FLOW.NET.UserProject.Controllers.UserProjectController",
     "Method": "UpdateUP",
     "RelativePath": "api/UserProject/{id}",
     "HttpMethod": "PUT",
@@ -679,7 +679,7 @@
       },
       {
         "Name": "body",
-        "Type": "TASK_FLOW.NET.User.DTO.UpdateUserProjectDTO",
+        "Type": "TASK_FLOW.NET.UserProject.DTO.UpdateUserProjectDTO",
         "IsRequired": true
       }
     ],

@@ -4,9 +4,9 @@ using TASK_FLOW.NET.Project.DTO;
 using TASK_FLOW.NET.Project.Model;
 using TASK_FLOW.NET.Project.Repository.Interface;
 using TASK_FLOW.NET.Project.Service.Interface;
-using TASK_FLOW.NET.User.Enums;
-using TASK_FLOW.NET.User.Model;
-using TASK_FLOW.NET.User.Repository.Interface;
+using TASK_FLOW.NET.UserProject.Enums;
+using TASK_FLOW.NET.UserProject.Model;
+using TASK_FLOW.NET.UserProject.Repository.Interface;
 
 namespace TASK_FLOW.NET.Project.Service
 {

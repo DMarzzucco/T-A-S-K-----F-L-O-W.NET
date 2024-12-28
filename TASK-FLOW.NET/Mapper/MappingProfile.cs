@@ -5,6 +5,8 @@ using TASK_FLOW.NET.Tasks.DTOs;
 using TASK_FLOW.NET.Tasks.Model;
 using TASK_FLOW.NET.User.DTO;
 using TASK_FLOW.NET.User.Model;
+using TASK_FLOW.NET.UserProject.DTO;
+using TASK_FLOW.NET.UserProject.Model;
 
 namespace TASK_FLOW.NET.Mapper
 {

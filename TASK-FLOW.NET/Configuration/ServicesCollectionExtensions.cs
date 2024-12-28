@@ -17,6 +17,10 @@ using TASK_FLOW.NET.User.Repository;
 using TASK_FLOW.NET.User.Repository.Interface;
 using TASK_FLOW.NET.User.Service;
 using TASK_FLOW.NET.User.Service.Interface;
+using TASK_FLOW.NET.UserProject.Repository;
+using TASK_FLOW.NET.UserProject.Repository.Interface;
+using TASK_FLOW.NET.UserProject.Services;
+using TASK_FLOW.NET.UserProject.Services.Interface;
 using TASK_FLOW.NET.Utils.Filters;
 
 namespace TASK_FLOW.NET.Configuration

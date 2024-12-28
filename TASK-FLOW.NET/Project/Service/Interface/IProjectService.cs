@@ -1,6 +1,6 @@
 ﻿using TASK_FLOW.NET.Project.DTO;
 using TASK_FLOW.NET.Project.Model;
-using TASK_FLOW.NET.User.Model;
+using TASK_FLOW.NET.UserProject.Model;
 
 namespace TASK_FLOW.NET.Project.Service.Interface
 {

@@ -1,6 +1,7 @@
 ﻿using Swashbuckle.AspNetCore.Annotations;
 using TASK_FLOW.NET.Configuration.Swagger.Attributes;
 using TASK_FLOW.NET.User.Enums;
+using TASK_FLOW.NET.UserProject.Model;
 
 namespace TASK_FLOW.NET.User.Model
 {

@@ -66,7 +66,7 @@ namespace TASK_FLOW.NET.Auth.Controller
         public async Task<ActionResult> LogOut()
         {
             await this._service.Logout();
-            return Ok(new { message =" Log Out successfully"});
+            return Ok(new { message = "Log Out successfully" });
         }
     }
 }

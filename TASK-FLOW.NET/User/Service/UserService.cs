@@ -5,6 +5,9 @@ using TASK_FLOW.NET.User.DTO;
 using TASK_FLOW.NET.User.Model;
 using TASK_FLOW.NET.User.Repository.Interface;
 using TASK_FLOW.NET.User.Service.Interface;
+using TASK_FLOW.NET.UserProject.Repository.Interface;
+using TASK_FLOW.NET.UserProject.Model;
+using TASK_FLOW.NET.UserProject.DTO;
 
 namespace TASK_FLOW.NET.User.Service
 {
@@ -61,13 +64,6 @@ namespace TASK_FLOW.NET.User.Service
             var user = await this._repository.FindByIdAsync(id);
             if (user == null) throw new KeyNotFoundException(" User not found");
             return user;
-        }
-
-        public async Task<UserProjectModel> RelationProject(UserProjectDTO body)
-        {
-            var data = this._mapper.Map<UserProjectModel>(body);
-            await this._userProjectRepository.AddChangeAsync(data);
-            return data;
         }
 
         public async Task<UsersModel> UpdateToken(int id, string RefreshToken)

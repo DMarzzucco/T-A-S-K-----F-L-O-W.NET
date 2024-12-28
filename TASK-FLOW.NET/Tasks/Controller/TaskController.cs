@@ -4,6 +4,7 @@ using TASK_FLOW.NET.Tasks.DTOs;
 using TASK_FLOW.NET.Tasks.Model;
 using TASK_FLOW.NET.Tasks.Service.Interface;
 using TASK_FLOW.NET.User.Enums;
+using TASK_FLOW.NET.UserProject.Enums;
 
 namespace TASK_FLOW.NET.Tasks.Controller
 {

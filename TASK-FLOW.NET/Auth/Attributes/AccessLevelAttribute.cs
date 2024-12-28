@@ -1,4 +1,4 @@
-﻿using TASK_FLOW.NET.User.Enums;
+﻿using TASK_FLOW.NET.UserProject.Enums;
 
 namespace TASK_FLOW.NET.Auth.Attributes
 {

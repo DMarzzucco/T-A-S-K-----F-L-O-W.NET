@@ -2,6 +2,7 @@
 using TASK_FLOW.NET.Context;
 using TASK_FLOW.NET.User.Model;
 using TASK_FLOW.NET.User.Repository.Interface;
+using TASK_FLOW.NET.UserProject.Model;
 
 namespace TASK_FLOW.NET.User.Repository
 {

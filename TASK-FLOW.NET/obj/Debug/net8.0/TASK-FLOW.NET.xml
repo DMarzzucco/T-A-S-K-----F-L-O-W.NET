@@ -132,6 +132,14 @@
             <response code = "204">No content</response>
             <response code = "404">Not found</response>
         </member>
+        <member name="M:TASK_FLOW.NET.UserProject.Controllers.UserProjectController.RegisterUserAndProject(TASK_FLOW.NET.UserProject.DTO.UserProjectDTO)">
+            <summary>
+            Relation Project
+            </summary>
+            <returns>Relation between a User and a Project with a Access Level</returns>
+            <response code="200">Relation finished successfully</response>
+            <response code="400">Relation Faild</response>
+        </member>
         <member name="M:TASK_FLOW.NET.User.Controller.UserController.RegisterUser(TASK_FLOW.NET.User.DTO.CreateUserDTO)">
             <summary>
             Register a new User
@@ -176,14 +184,6 @@
             <returns>Delete a User according his Id</returns>
             <response code="204">User Deleted</response>
             <response code="404">User Not Found</response>
-        </member>
-        <member name="M:TASK_FLOW.NET.User.Controller.UserProjectController.RegisterUserAndProject(TASK_FLOW.NET.User.DTO.UserProjectDTO)">
-            <summary>
-            Relation Project
-            </summary>
-            <returns>Relation between a User and a Project with a Access Level</returns>
-            <response code="200">Relation finished successfully</response>
-            <response code="400">Relation Faild</response>
         </member>
     </members>
 </doc>
