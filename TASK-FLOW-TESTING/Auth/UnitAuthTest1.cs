@@ -2,10 +2,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using TASK_FLOW.NET.Auth.Controller;
-using TASK_FLOW.NET.Auth.DTO;
 using TASK_FLOW.NET.Auth.Service.Interface;
-using TASK_FLOW.NET.User.Enums;
-using TASK_FLOW.NET.User.Model;
+using TASK_FLOW_TESTING.Auth.Mock;
+using TASK_FLOW_TESTING.User.Mocks;
 
 namespace TASK_FLOW_TESTING.Auth
 {
@@ -23,22 +22,10 @@ namespace TASK_FLOW_TESTING.Auth
         [Fact]
         public async Task Login_ShouldReturnToken_WhenUserIsValid()
         {
-            var authProps = new AuthPropsDTO
-            {
-                Username = "DMarzz",
-                Password = "promotheus98"
-            };
-            var user = new UsersModel
-            {
-                First_name = "Dario",
-                Last_name = "Marzzucco",
-                Age = "27",
-                Username = "DMarzz",
-                Email = "DMarzz@gmail.com",
-                Password = "promotheus98",
-                Roles = ROLES.ADMIN
-            };
-            var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwicm9sIjoiMSIsIm5iZiI6MTczNTM5MDkzMiwiZXhwIjoxNzM1NTYzNzMyLCJpYXQiOjE3MzUzOTA5MzJ9.fxCAmD20OHRbD28D5PhuVkLkidcySTblRdT0geFQfO4";
+            var authProps = AuthMock.AuthDTOMock;
+            var user = UsersMock.UserMock;
+
+            var token = AuthMock.TokenMock.AccessToken;
 
             var httpContext = new DefaultHttpContext();
             httpContext.Items["User"] = user;

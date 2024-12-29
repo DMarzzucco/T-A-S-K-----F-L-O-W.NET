@@ -5,9 +5,6 @@ using TASK_FLOW.NET.User.DTO;
 using TASK_FLOW.NET.User.Model;
 using TASK_FLOW.NET.User.Repository.Interface;
 using TASK_FLOW.NET.User.Service.Interface;
-using TASK_FLOW.NET.UserProject.Repository.Interface;
-using TASK_FLOW.NET.UserProject.Model;
-using TASK_FLOW.NET.UserProject.DTO;
 
 namespace TASK_FLOW.NET.User.Service
 {
@@ -15,13 +12,11 @@ namespace TASK_FLOW.NET.User.Service
     {
 
         private readonly IUserRepository _repository;
-        private readonly IUserProjectRepository _userProjectRepository;
         private readonly IMapper _mapper;
 
-        public UserService(IUserRepository repository, IUserProjectRepository userProjectRepository, IMapper mapper)
+        public UserService(IUserRepository repository, IMapper mapper)
         {
             this._repository = repository;
-            this._userProjectRepository = userProjectRepository;
             this._mapper = mapper;
         }
 

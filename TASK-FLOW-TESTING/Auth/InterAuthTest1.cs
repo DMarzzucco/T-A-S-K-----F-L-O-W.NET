@@ -6,10 +6,8 @@ using TASK_FLOW.NET.Auth.JWT.Service.Interface;
 using TASK_FLOW.NET.Auth.Cookie.Service.Interface;
 using TASK_FLOW.NET.Auth.Service;
 using TASK_FLOW.NET.User.Model;
-using TASK_FLOW.NET.User.Enums;
-using TASK_FLOW.NET.Auth.JWT.DTO;
-using Microsoft.AspNetCore.Mvc;
-using TASK_FLOW.NET.Auth.DTO;
+using TASK_FLOW_TESTING.User.Mocks;
+using TASK_FLOW_TESTING.Auth.Mock;
 namespace TASK_FLOW_TESTING.Auth
 {
     public class InterAuthTest1
@@ -40,23 +38,8 @@ namespace TASK_FLOW_TESTING.Auth
         [Fact]
         public async Task GenerateToken_ShouldGenerateTokenAndSetCookie()
         {
-            var user = new UsersModel
-            {
-                First_name = "Dario",
-                Last_name = "Marzzucco",
-                Age = "27",
-                Username = "DMarzz",
-                Email = "DMarzz@gmail.com",
-                Password = "promotheus98",
-                Roles = ROLES.ADMIN
-            };
-            var token = new TokenPair
-            {
-                AccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwicm9sIjoiMSIsIm5iZiI6MTczNTM5MDkzMiwiZXhwIjoxNzM1NTYzNzMyLCJpYXQiOjE3MzUzOTA5MzJ9.fxCAmD20OHRbD28D5PhuVkLkidcySTblRdT0geFQfO4",
-                RefreshToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwicm9sIjoiMSIsIm5iZiI6MTczNTM5MDkzMiwiZXhwIjoxNzM1ODIyOTMyLCJpYXQiOjE3MzUzOTA5MzJ9.7WoceqK9cqsQvs6KEAymuY8nyU4ElAV_bUBFU8WEacs",
-
-                RefreshTokenHasher = "$2a$11$4oaZ9eM55kz2WkDnazw7s.Uh66Pu/raUH0tue3qqRPd1V6NEJcf/."
-            };
+            var user = UsersMock.UserMock;
+            var token = AuthMock.TokenMock;
 
             this._tokenService.Setup(x => x.GenerateToken(user)).Returns(token);
 
@@ -72,16 +55,8 @@ namespace TASK_FLOW_TESTING.Auth
         [Fact]
         public async Task Should_Get_The_User_From_Cookie()
         {
-            var user = new UsersModel
-            {
-                First_name = "Dario",
-                Last_name = "Marzzucco",
-                Age = "27",
-                Username = "DMarzz",
-                Email = "DMarzz@gmail.com",
-                Password = "promotheus98",
-                Roles = ROLES.ADMIN
-            };
+            var user = UsersMock.UserMock;
+
             this._tokenService.Setup(t => t.GetIdFromToken()).Returns(user.Id);
             this._userService.Setup(u => u.GetById(user.Id)).ReturnsAsync(user);
 
@@ -93,21 +68,9 @@ namespace TASK_FLOW_TESTING.Auth
         [Fact]
         public async Task Should_Validate_the_User_Credentials()
         {
-            var authProps = new AuthPropsDTO
-            {
-                Username = "DMarzz",
-                Password = "promotheus98"
-            };
-            var user = new UsersModel
-            {
-                First_name = "Dario",
-                Last_name = "Marzzucco",
-                Age = "27",
-                Username = "DMarzz",
-                Email = "DMarzz@gmail.com",
-                Password = "AQAAAAIAAYagAAAAEEM5GX6vpkzonyKHRs+sSAa22CshBphstUvLsiBfzwYEDjPr5K9WM4xdXbDM1/v6vw==",
-                Roles = ROLES.ADMIN
-            };
+            var authProps = AuthMock.AuthDTOMock;
+            var user = UsersMock.UserHashPassMock;
+
             this._userService.Setup(u => u.FindByAuth("Username", authProps.Username)).ReturnsAsync(user);
 
             var result = this._authService.ValidationUser(authProps);

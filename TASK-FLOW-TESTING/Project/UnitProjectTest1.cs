@@ -1,13 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using TASK_FLOW.NET.Project.Controller;
-using TASK_FLOW.NET.Project.DTO;
 using TASK_FLOW.NET.Project.Model;
 using TASK_FLOW.NET.Project.Service.Interface;
-using TASK_FLOW.NET.User.Enums;
-using TASK_FLOW.NET.User.Model;
 using TASK_FLOW.NET.UserProject.Enums;
 using TASK_FLOW.NET.UserProject.Model;
+using TASK_FLOW_TESTING.Project.Mock;
+using TASK_FLOW_TESTING.User.Mocks;
 
 namespace TASK_FLOW_TESTING.Project
 {
@@ -29,27 +28,11 @@ namespace TASK_FLOW_TESTING.Project
         [Fact]
         public async Task Should_Create_A_Project()
         {
-            var body = new CreateProjectDTO
-            {
-                Name = "Project test",
-                Description = "This is a project test"
-            };
-            var project = new ProjectModel
-            {
-                Id = 4,
-                Name = "Project test",
-                Description = "This is a project test"
-            };
-            var user = new UsersModel
-            {
-                First_name = "Dario",
-                Last_name = "Marzzucco",
-                Age = "27",
-                Username = "DMarzz",
-                Email = "DMarzz@gmail.com",
-                Password = "promotheus98",
-                Roles = ROLES.ADMIN
-            };
+            var body = ProjectMock.CreateProjectDTOMock;
+            var project = ProjectMock.ProjectModelMock;
+
+            var user = UsersMock.UserMock;
+
             var userProject = new UserProjectModel
             {
                 AccessLevel = ACCESSLEVEL.OWNER,
@@ -108,12 +91,8 @@ namespace TASK_FLOW_TESTING.Project
         [Fact]
         public async Task Get_A_Project_By_His_Id()
         {
-            var project = new ProjectModel
-            {
-                Id = 4,
-                Name = "Project test",
-                Description = "This is a project test"
-            };
+            var project = ProjectMock.ProjectModelMock;
+
             var projectId = 4;
 
             this._projectService.Setup(p => p.GetProjectById(projectId)).ReturnsAsync(project);
@@ -133,17 +112,9 @@ namespace TASK_FLOW_TESTING.Project
         [Fact]
         public async Task Should_Update_Project()
         {
-            var body = new UpdateProjectDTO
-            {
-                Name = "Update ",
-                Description = "This is a Update test "
-            };
-            var project = new ProjectModel
-            {
-                Id = 4,
-                Name = "Project test",
-                Description = "This is a project test"
-            };
+            var body = ProjectMock.UpdateProjectDTOMock;
+            var project = ProjectMock.ProjectModelMock;
+
             var projectId = 4;
             this._projectService.Setup(p => p.UpdateProject(projectId, body)).ReturnsAsync(project);
 
