@@ -26,4 +26,8 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="User\Mocks\NewFolder\" />
+  </ItemGroup>
+
 </Project>
