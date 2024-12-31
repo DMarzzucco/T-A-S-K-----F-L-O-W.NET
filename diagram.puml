@@ -1,0 +1,76 @@
+@startuml TaskFlow
+
+start
+
+:Client;
+if (¿Is the client registered?) then (No)
+    :Register;
+    if (¿Duplicate Data?) then (Yes)
+        :Show error 409;
+        stop
+    else (No)
+        :Save user data in the database;
+        :Return to Login Section;
+        stop
+    endif
+else (yes)
+    :Login;
+    if (¿Validate credentials?) then (No)
+        :Show error;
+        :Error 401 Unauthorized ;
+        :Error 404 User not found;
+        stop
+    else (Yes)
+        :Access to profile;
+    endif
+
+    if (Roles)then (Yes)
+        if (Admin)
+            if (Total Access)
+                :CRUD user;
+                :Give Access Level;
+                :CRUD project;
+                :CRUD task;
+            endif
+        else if (Creator)
+            :List of User;
+            :CRUD project;
+            :Give Access Level;
+            :CRUD task;
+        else if (Basic)
+            :Create Project;
+            if (¿Get Level Access?) then (Yes)
+                if (OWNER ) then (50)
+                    :Create Project;
+                    :Get Project by id;
+                    :Update Project;
+                    :CRUD task;
+                else if (MAINTAINER) then(40)
+                    :Create Project;
+                    :Update Project;
+                    :CRUD task;
+                else if (DEVELOPER) then(30)
+                    :CRUD task;
+                endif
+
+            else (no)
+                :Error 401 Unauthorized ;
+                stop
+            endif
+        endif
+        :Progress Task;
+        if (CREATED)
+            :Task Created;
+        else if (IN_PROGRESS)
+            :Task In Progress;
+        else if (FINISH)
+            :Task Finished;
+        endif
+    else (No)
+        :Error 401;
+        stop
+
+    endif
+
+    stop
+    @enduml
