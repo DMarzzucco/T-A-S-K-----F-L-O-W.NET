@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TASK-FLOW-TESTING")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+000f65a54334d07d73cf27c6da7344caeda1f0e4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c5220ef88c8a0aa0bdd22460a22df0891f37e223")]
 [assembly: System.Reflection.AssemblyProductAttribute("TASK-FLOW-TESTING")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TASK-FLOW-TESTING")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

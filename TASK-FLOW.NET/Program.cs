@@ -1,5 +1,7 @@
+using Microsoft.EntityFrameworkCore;
 using TASK_FLOW.NET.Configuration;
 using TASK_FLOW.NET.Configuration.Swagger;
+using TASK_FLOW.NET.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -36,5 +38,9 @@ app.UseStaticFiles();
 app.UseCors("CorsPolicy");
 app.UseAuthentication();
 app.UseAuthorization();
+using (var scope = app.Services.CreateScope()) {
+    var dbContext = scope.ServiceProvider.GetRequiredService<AppDBContext>();
+    dbContext.Database.Migrate();
+}
 app.MapControllers();
 app.Run();
