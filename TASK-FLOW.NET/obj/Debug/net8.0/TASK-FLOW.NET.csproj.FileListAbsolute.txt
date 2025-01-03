@@ -122,3 +122,4 @@ C:\Users\darmarzrold\source\repos\T-A-S-K-----F-L-O-W.NET\TASK-FLOW.NET\obj\Debu
 C:\Users\darmarzrold\source\repos\T-A-S-K-----F-L-O-W.NET\TASK-FLOW.NET\obj\Debug\net8.0\TASK-FLOW.NET.pdb
 C:\Users\darmarzrold\source\repos\T-A-S-K-----F-L-O-W.NET\TASK-FLOW.NET\obj\Debug\net8.0\TASK-FLOW.NET.genruntimeconfig.cache
 C:\Users\darmarzrold\source\repos\T-A-S-K-----F-L-O-W.NET\TASK-FLOW.NET\obj\Debug\net8.0\ref\TASK-FLOW.NET.dll
+C:\Users\darmarzrold\source\repos\T-A-S-K-----F-L-O-W.NET\TASK-FLOW.NET\bin\Debug\net8.0\appsettings.Production.json

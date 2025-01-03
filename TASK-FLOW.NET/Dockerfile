@@ -4,6 +4,7 @@ WORKDIR /app
 EXPOSE 5024
 EXPOSE 5024
 
+ENV ASPNETCORE_ENVIRONMENT Production
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
@@ -15,7 +16,7 @@ WORKDIR "/src/TASK-FLOW.NET"
 RUN dotnet tool install --global dotnet-ef 
 ENV PATH="$PATH:/root/.dotnet/tools"
 RUN dotnet build "./TASK-FLOW.NET.csproj" -c $BUILD_CONFIGURATION -o /app/build
-CMD dotnet ef database update --environment Development --project src/TASK-FLOW.NET
+CMD dotnet ef database update --environment Production --project src/TASK-FLOW.NET
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release

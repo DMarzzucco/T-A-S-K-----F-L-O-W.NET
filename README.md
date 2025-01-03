@@ -54,9 +54,14 @@ This diagram illustrates the application's logic flow, including user authentica
 ## Requirements
 
 - [Docker-Desktope](https://www.docker.com/products/docker-desktop/)
-- [.NET 8](https://dotnet.microsoft.com/es-es/download)
+- Optional [.NET 8](https://dotnet.microsoft.com/es-es/download) 
 
-## Install
+## Install in Docker 
+
+```bash
+$ docker-compose up
+```
+## Install in Local Machine 
 
 ```bash
 
@@ -64,9 +69,6 @@ This diagram illustrates the application's logic flow, including user authentica
 $ docker-compose up db
 
 # in .\TASK-FLOW-TESTING\
-
-# start the entities in date base
-$ dotnet ef database update
 
 # start the server
 $ dotnet run
