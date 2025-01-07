@@ -5,7 +5,6 @@ using TASK_FLOW.NET.User.Enums;
 using TASK_FLOW.NET.User.Model;
 using TASK_FLOW.NET.UserProject.Enums;
 using TASK_FLOW.NET.UserProject.Model;
-using TASK_FLOW_TESTING.UserProject.Mocks;
 
 namespace TASK_FLOW_TESTING.User.Mocks
 {
@@ -19,9 +18,8 @@ namespace TASK_FLOW_TESTING.User.Mocks
             Age = "27",
             Username = "DMarzz",
             Email = "DMarzz@gmail.com",
-            Password = "promotheus98",
+            Password = "Pr@motheus98",
             Roles = ROLES.ADMIN,
-            //ProjectIncludes = new List<UserProjectModel> { UserProjectsMocks.MockUserProject }
         };
         public static UsersModel UserMockWithOutProject => new UsersModel
         {
@@ -31,7 +29,7 @@ namespace TASK_FLOW_TESTING.User.Mocks
             Age = "27",
             Username = "DMarzz",
             Email = "DMarzz@gmail.com",
-            Password = "promotheus98",
+            Password = "Pr@motheus98",
             Roles = ROLES.ADMIN,
         };
         public static UsersModel UserHashPassMock => new UsersModel
@@ -42,7 +40,7 @@ namespace TASK_FLOW_TESTING.User.Mocks
             Age = "27",
             Username = "DMarzz",
             Email = "DMarzz@gmail.com",
-            Password = "AQAAAAIAAYagAAAAEEM5GX6vpkzonyKHRs+sSAa22CshBphstUvLsiBfzwYEDjPr5K9WM4xdXbDM1/v6vw==",
+            Password ="AQAAAAIAAYagAAAAEMS4jLBZxqiCLDbX0FXyV3VoeSnq0FBBpYSVdgpFfHw83cBB33cnzomg736FuySfJg==",
             Roles = ROLES.ADMIN
         };
 
@@ -53,7 +51,7 @@ namespace TASK_FLOW_TESTING.User.Mocks
             Age = "27",
             Username = "DMarzz",
             Email = "DMarzz@gmail.com",
-            Password = "promotheus98",
+            Password = "Pr@motheus98",
             Roles = ROLES.ADMIN
         };
         public static UpdateUserDTO UpdateUserDTOMOck => new UpdateUserDTO
@@ -63,7 +61,7 @@ namespace TASK_FLOW_TESTING.User.Mocks
             Age = "27",
             Username = "DMarzz",
             Email = "DMarzz@gmail.com",
-            Password = "promotheus98",
+            Password = "Pr@motheus98",
             Roles = ROLES.ADMIN
         };
         public static UsersModel UserMockWithRelations
@@ -78,7 +76,7 @@ namespace TASK_FLOW_TESTING.User.Mocks
                     Age = "27",
                     Username = "DMarzz",
                     Email = "DMarzz@gmail.com",
-                    Password = "promotheus98",
+                    Password = "Pr@motheus98",
                     Roles = ROLES.BASIC,
                     ProjectIncludes = new List<UserProjectModel>()
                 };

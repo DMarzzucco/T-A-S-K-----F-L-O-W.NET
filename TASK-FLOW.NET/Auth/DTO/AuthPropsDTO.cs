@@ -10,7 +10,7 @@ namespace TASK_FLOW.NET.Auth.DTO
         public required string Username { get; set; }
 
         [SwaggerSchema("User Password ")]
-        [SwaggerSchemaExample("promotheus98")]
+        [SwaggerSchemaExample("Pr@motheus98")]
         public required string Password { get; set; }
     }
 }

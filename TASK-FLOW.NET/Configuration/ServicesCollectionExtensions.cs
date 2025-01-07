@@ -17,6 +17,8 @@ using TASK_FLOW.NET.User.Repository;
 using TASK_FLOW.NET.User.Repository.Interface;
 using TASK_FLOW.NET.User.Service;
 using TASK_FLOW.NET.User.Service.Interface;
+using TASK_FLOW.NET.User.Validations;
+using TASK_FLOW.NET.User.Validations.Interface;
 using TASK_FLOW.NET.UserProject.Repository;
 using TASK_FLOW.NET.UserProject.Repository.Interface;
 using TASK_FLOW.NET.UserProject.Services;
@@ -48,6 +50,7 @@ namespace TASK_FLOW.NET.Configuration
             //User Services
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserValidations, UsersValidations>();
             //UserProject Services
             services.AddScoped<IUserProjectRepository, UserProjectRepository>();
             services.AddScoped<IUserProjectService, UserProjectService>();

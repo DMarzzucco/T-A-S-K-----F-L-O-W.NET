@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Identity;
-using TASK_FLOW.NET.Utils.Exceptions;
 using TASK_FLOW.NET.User.DTO;
 using TASK_FLOW.NET.User.Model;
 using TASK_FLOW.NET.User.Repository.Interface;
 using TASK_FLOW.NET.User.Service.Interface;
+using TASK_FLOW.NET.User.Validations.Interface;
 
 namespace TASK_FLOW.NET.User.Service
 {
@@ -12,19 +12,19 @@ namespace TASK_FLOW.NET.User.Service
     {
 
         private readonly IUserRepository _repository;
+        private readonly IUserValidations _validation;
         private readonly IMapper _mapper;
 
-        public UserService(IUserRepository repository, IMapper mapper)
+        public UserService(IUserRepository repository, IMapper mapper, IUserValidations validations)
         {
             this._repository = repository;
             this._mapper = mapper;
+            this._validation = validations;
         }
 
         public async Task<UsersModel> CreateUser(CreateUserDTO body)
         {
-            if (this._repository.ExistsByUsername(body.Username)) throw new ConflictException("This Username already exists");
-
-            if (this._repository.ExistsByEmail(body.Email)) throw new ConflictException("This Email already exists");
+            this._validation.ValidationCreateUser(body);
 
             var data = this._mapper.Map<UsersModel>(body);
 

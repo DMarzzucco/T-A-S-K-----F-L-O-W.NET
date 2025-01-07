@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IJzyNFo+Iik=",
+  "dgSpecHash": "K93j2cwS4Ko=",
   "success": true,
-  "projectFilePath": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW-TESTING\\TASK-FLOW-TESTING.csproj",
+  "projectFilePath": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW-TESTING\\Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\darmarzrold\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\darmarzrold\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",

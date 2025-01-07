@@ -4,18 +4,21 @@ using TASK_FLOW.NET.User.DTO;
 using TASK_FLOW.NET.User.Model;
 using TASK_FLOW.NET.User.Repository.Interface;
 using TASK_FLOW.NET.User.Service;
+using TASK_FLOW.NET.User.Validations.Interface;
 using TASK_FLOW_TESTING.User.Mocks;
 namespace TASK_FLOW_TESTING.User
 {
     public class InterUserTest
     {
         private readonly Mock<IUserRepository> _repository;
+        private readonly Mock<IUserValidations> _validations;
         private readonly IMapper _mapper;
         private readonly UserService _service;
 
         public InterUserTest()
         {
             this._repository = new Mock<IUserRepository>();
+            this._validations = new Mock<IUserValidations>();
 
             var conf = new MapperConfiguration(conf =>
             {
@@ -26,7 +29,8 @@ namespace TASK_FLOW_TESTING.User
 
             this._service = new UserService(
                 this._repository.Object,
-                this._mapper
+                this._mapper,
+                this._validations.Object
                 );
         }
 

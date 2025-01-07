@@ -31,7 +31,7 @@ namespace TASK_FLOW.NET.User.Model
         public required string Email { get; set; }
 
         [SwaggerSchema("User Password ")]
-        [SwaggerSchemaExample("promotheus98")]
+        [SwaggerSchemaExample("Pr@motheus98")]
         public required string Password { get; set; }
 
         [SwaggerSchema("User ROle ")]

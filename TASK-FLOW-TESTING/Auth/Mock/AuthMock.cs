@@ -9,7 +9,7 @@ namespace TASK_FLOW_TESTING.Auth.Mock
         public static AuthPropsDTO AuthDTOMock => new AuthPropsDTO
         {
             Username = "DMarzz",
-            Password = "promotheus98"
+            Password = "Pr@motheus98"
         };
         public static TokenPair TokenMock => new TokenPair
         {

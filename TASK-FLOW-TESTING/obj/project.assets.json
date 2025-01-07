@@ -7307,9 +7307,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW-TESTING\\TASK-FLOW-TESTING.csproj",
-      "projectName": "TASK-FLOW-TESTING",
-      "projectPath": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW-TESTING\\TASK-FLOW-TESTING.csproj",
+      "projectUniqueName": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW-TESTING\\Test.csproj",
+      "projectName": "Test",
+      "projectPath": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW-TESTING\\Test.csproj",
       "packagesPath": "C:\\Users\\darmarzrold\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW-TESTING\\obj\\",
       "projectStyle": "PackageReference",
