@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Microsoft.AspNetCore.Mvc.Filters;
 using TASK_FLOW.NET.Auth.Attributes;
+using TASK_FLOW.NET.Auth.Helpers;
 using TASK_FLOW.NET.Auth.Service.Interface;
 using TASK_FLOW.NET.User.Enums;
 
@@ -16,19 +16,14 @@ namespace TASK_FLOW.NET.Auth.Filters
 
         public async Task OnAuthorizationAsync(AuthorizationFilterContext context)
         {
-            var hasAllowPublicAccess = context.ActionDescriptor.EndpointMetadata.Any(md => md is AllowAnonymousAccessAttribute);
-            if (hasAllowPublicAccess) return;
+            if (AllowPublicAccessHelper.hasAllowPublicAccess(context)) return;
 
             var userRoleString = context.HttpContext.Items["UserRole"]?.ToString();
 
             if (!Enum.TryParse(userRoleString, out ROLES userRole))
             {
-                context.Result = new ContentResult
-                {
-                    StatusCode = StatusCodes.Status403Forbidden,
-                    Content = "Invalid Rol",
-                    ContentType = "application/json"
-                };
+                context.Result = ContentResultHelper.CreateContentResult(StatusCodes.Status403Forbidden, "Invalid Rol");
+                return;
             }
             if (userRole == ROLES.ADMIN || userRole == ROLES.CREATOR) return;
 
@@ -37,12 +32,7 @@ namespace TASK_FLOW.NET.Auth.Filters
 
             if (userExistInProject == null)
             {
-                context.Result = new ContentResult
-                {
-                    StatusCode = StatusCodes.Status403Forbidden,
-                    Content = "Don´t belong to the project",
-                    ContentType = "application/json"
-                };
+                context.Result = ContentResultHelper.CreateContentResult(StatusCodes.Status403Forbidden, "Don't belong to the project");
                 return;
             }
             var level = userExistInProject.AccessLevel;
@@ -51,12 +41,7 @@ namespace TASK_FLOW.NET.Auth.Filters
 
             if (accessLevel == null || !accessLevel.Any(r => (int)level >= (int)r))
             {
-                context.Result = new ContentResult
-                {
-                    StatusCode = StatusCodes.Status403Forbidden,
-                    Content = "Don´t get the level access for this operation",
-                    ContentType = "application/json"
-                };
+                context.Result = ContentResultHelper.CreateContentResult(StatusCodes.Status403Forbidden, "Don't get the level access for this operation");
                 return;
             }
         }

@@ -27,10 +27,11 @@ namespace TASK_FLOW.NET.Project.Repository
                 .Include(u => u.UsersIncludes)
                 .ThenInclude(ui => ui.User)
                 .FirstOrDefaultAsync(p => p.Id == id);
-            if (project != null && project.UsersIncludes != null && project.UsersIncludes.Any())
-                return project;
 
-            project.UsersIncludes = new List<UserProjectModel>();
+            if (project == null) return null;
+
+            project.UsersIncludes ??= new List<UserProjectModel>();
+
             return project;
         }
 

@@ -3,7 +3,6 @@ using TASK_FLOW.NET.Auth.JWT.DTO;
 
 namespace TASK_FLOW.NET.Auth.Cookie.Service
 {
-
     public class CookieService : ICookieService
     {
 

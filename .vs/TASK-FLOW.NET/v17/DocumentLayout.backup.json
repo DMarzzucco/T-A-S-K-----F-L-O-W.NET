@@ -3,48 +3,64 @@
   "WorkspaceRootPath": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow.net\\auth\\filters\\rolesvalidationfilters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|solutionrelative:task-flow.net\\auth\\filters\\rolesvalidationfilters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow.net\\user\\controller\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|solutionrelative:task-flow.net\\user\\controller\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow.net\\auth\\filters\\jwtauthfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|solutionrelative:task-flow.net\\auth\\filters\\jwtauthfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow.net\\auth\\filters\\accesslevelauth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|solutionrelative:task-flow.net\\auth\\filters\\accesslevelauth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8738CCD-A2B9-41BB-89BB-D0EA7478C6E9}|TASK-FLOW-TESTING\\Test.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow-testing\\auth\\filters\\unitaccesslevelauthfiltertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8738CCD-A2B9-41BB-89BB-D0EA7478C6E9}|TASK-FLOW-TESTING\\Test.csproj|solutionrelative:task-flow-testing\\auth\\filters\\unitaccesslevelauthfiltertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow.net\\project\\repository\\projectrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|solutionrelative:task-flow.net\\project\\repository\\projectrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow.net\\user\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|solutionrelative:task-flow.net\\user\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow.net\\tasks\\repository\\taskrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|solutionrelative:task-flow.net\\tasks\\repository\\taskrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow.net\\user\\service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|solutionrelative:task-flow.net\\user\\service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8738CCD-A2B9-41BB-89BB-D0EA7478C6E9}|TASK-FLOW-TESTING\\TASK-FLOW-TESTING.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow-testing\\auth\\attributes\\unitallowanonymousaccesstest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8738CCD-A2B9-41BB-89BB-D0EA7478C6E9}|TASK-FLOW-TESTING\\TASK-FLOW-TESTING.csproj|solutionrelative:task-flow-testing\\auth\\attributes\\unitallowanonymousaccesstest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow.net\\configuration\\connectionsconfigurations\\helper\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|solutionrelative:task-flow.net\\configuration\\connectionsconfigurations\\helper\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow.net\\configuration\\servicescollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|solutionrelative:task-flow.net\\configuration\\servicescollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow.net\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|solutionrelative:task-flow.net\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow.net\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|solutionrelative:task-flow.net\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8738CCD-A2B9-41BB-89BB-D0EA7478C6E9}|TASK-FLOW-TESTING\\TASK-FLOW-TESTING.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow-testing\\auth\\filters\\unitaccesslevelauthfiltertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8738CCD-A2B9-41BB-89BB-D0EA7478C6E9}|TASK-FLOW-TESTING\\TASK-FLOW-TESTING.csproj|solutionrelative:task-flow-testing\\auth\\filters\\unitaccesslevelauthfiltertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow.net\\configuration\\connectionsconfigurations\\databaseconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|solutionrelative:task-flow.net\\configuration\\connectionsconfigurations\\databaseconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow.net\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|solutionrelative:task-flow.net\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8738CCD-A2B9-41BB-89BB-D0EA7478C6E9}|TASK-FLOW-TESTING\\TASK-FLOW-TESTING.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow-testing\\auth\\attributes\\unitisadmintest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8738CCD-A2B9-41BB-89BB-D0EA7478C6E9}|TASK-FLOW-TESTING\\TASK-FLOW-TESTING.csproj|solutionrelative:task-flow-testing\\auth\\attributes\\unitisadmintest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D8738CCD-A2B9-41BB-89BB-D0EA7478C6E9}|TASK-FLOW-TESTING\\Test.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow-testing\\auth\\attributes\\unitallowanonymousaccesstest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8738CCD-A2B9-41BB-89BB-D0EA7478C6E9}|TASK-FLOW-TESTING\\Test.csproj|solutionrelative:task-flow-testing\\auth\\attributes\\unitallowanonymousaccesstest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow.net\\auth\\filters\\accesslevelauth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|solutionrelative:task-flow.net\\auth\\filters\\accesslevelauth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow.net\\configuration\\connectionsconfigurations\\helper\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|solutionrelative:task-flow.net\\configuration\\connectionsconfigurations\\helper\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow.net\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|solutionrelative:task-flow.net\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow.net\\configuration\\connectionsconfigurations\\databaseconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{297329B3-33B9-484F-B957-EA723BD5878B}|TASK-FLOW.NET\\TASK-FLOW.NET.csproj|solutionrelative:task-flow.net\\configuration\\connectionsconfigurations\\databaseconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8738CCD-A2B9-41BB-89BB-D0EA7478C6E9}|TASK-FLOW-TESTING\\Test.csproj|c:\\users\\darmarzrold\\source\\repos\\t-a-s-k-----f-l-o-w.net\\task-flow-testing\\auth\\attributes\\unitisadmintest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8738CCD-A2B9-41BB-89BB-D0EA7478C6E9}|TASK-FLOW-TESTING\\Test.csproj|solutionrelative:task-flow-testing\\auth\\attributes\\unitisadmintest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,7 +70,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 751,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -82,20 +98,85 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "AccessLevelAuth.cs",
+              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\Auth\\Filters\\AccessLevelAuth.cs",
+              "RelativeDocumentMoniker": "TASK-FLOW.NET\\Auth\\Filters\\AccessLevelAuth.cs",
+              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\Auth\\Filters\\AccessLevelAuth.cs",
+              "RelativeToolTip": "TASK-FLOW.NET\\Auth\\Filters\\AccessLevelAuth.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T20:24:00.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\User\\Repository\\UserRepository.cs",
+              "RelativeDocumentMoniker": "TASK-FLOW.NET\\User\\Repository\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\User\\Repository\\UserRepository.cs",
+              "RelativeToolTip": "TASK-FLOW.NET\\User\\Repository\\UserRepository.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAIAywDwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T20:05:44.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProjectRepository.cs",
+              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\Project\\Repository\\ProjectRepository.cs",
+              "RelativeDocumentMoniker": "TASK-FLOW.NET\\Project\\Repository\\ProjectRepository.cs",
+              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\Project\\Repository\\ProjectRepository.cs",
+              "RelativeToolTip": "TASK-FLOW.NET\\Project\\Repository\\ProjectRepository.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAABDwBkAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T19:59:21.985Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TaskRepository.cs",
+              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\Tasks\\Repository\\TaskRepository.cs",
+              "RelativeDocumentMoniker": "TASK-FLOW.NET\\Tasks\\Repository\\TaskRepository.cs",
+              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\Tasks\\Repository\\TaskRepository.cs",
+              "RelativeToolTip": "TASK-FLOW.NET\\Tasks\\Repository\\TaskRepository.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAuwA8AAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T19:59:41.573Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\User\\Controller\\UserController.cs",
+              "RelativeDocumentMoniker": "TASK-FLOW.NET\\User\\Controller\\UserController.cs",
+              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\User\\Controller\\UserController.cs",
+              "RelativeToolTip": "TASK-FLOW.NET\\User\\Controller\\UserController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T17:20:49.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\User\\Service\\UserService.cs",
               "RelativeDocumentMoniker": "TASK-FLOW.NET\\User\\Service\\UserService.cs",
               "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\User\\Service\\UserService.cs",
               "RelativeToolTip": "TASK-FLOW.NET\\User\\Service\\UserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAkwCoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-07T18:56:36.463Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 13,
               "Title": "DatabaseConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\Configuration\\ConnectionsConfigurations\\DatabaseConfiguration.cs",
               "RelativeDocumentMoniker": "TASK-FLOW.NET\\Configuration\\ConnectionsConfigurations\\DatabaseConfiguration.cs",
@@ -103,12 +184,11 @@
               "RelativeToolTip": "TASK-FLOW.NET\\Configuration\\ConnectionsConfigurations\\DatabaseConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T16:18:19.699Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T16:18:19.699Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 11,
               "Title": "DatabaseHelper.cs",
               "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\Configuration\\ConnectionsConfigurations\\Helper\\DatabaseHelper.cs",
               "RelativeDocumentMoniker": "TASK-FLOW.NET\\Configuration\\ConnectionsConfigurations\\Helper\\DatabaseHelper.cs",
@@ -116,70 +196,56 @@
               "RelativeToolTip": "TASK-FLOW.NET\\Configuration\\ConnectionsConfigurations\\Helper\\DatabaseHelper.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T12:16:16.596Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-03T12:16:16.596Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\Program.cs",
               "RelativeDocumentMoniker": "TASK-FLOW.NET\\Program.cs",
               "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\Program.cs",
               "RelativeToolTip": "TASK-FLOW.NET\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-02T21:15:55.528Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "AccessLevelAuth.cs",
-              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\Auth\\Filters\\AccessLevelAuth.cs",
-              "RelativeDocumentMoniker": "TASK-FLOW.NET\\Auth\\Filters\\AccessLevelAuth.cs",
-              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\Auth\\Filters\\AccessLevelAuth.cs",
-              "RelativeToolTip": "TASK-FLOW.NET\\Auth\\Filters\\AccessLevelAuth.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T16:57:42.41Z",
               "EditorCaption": ""
             }
           ]
         },
         {
           "DockedWidth": 669,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ServicesCollectionExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\Configuration\\ServicesCollectionExtensions.cs",
-              "RelativeDocumentMoniker": "TASK-FLOW.NET\\Configuration\\ServicesCollectionExtensions.cs",
-              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\Configuration\\ServicesCollectionExtensions.cs",
-              "RelativeToolTip": "TASK-FLOW.NET\\Configuration\\ServicesCollectionExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAEAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "RolesValidationFilters.cs",
+              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\Auth\\Filters\\RolesValidationFilters.cs",
+              "RelativeDocumentMoniker": "TASK-FLOW.NET\\Auth\\Filters\\RolesValidationFilters.cs",
+              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\Auth\\Filters\\RolesValidationFilters.cs",
+              "RelativeToolTip": "TASK-FLOW.NET\\Auth\\Filters\\RolesValidationFilters.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T19:30:03.277Z",
+              "WhenOpened": "2025-01-08T20:37:12.481Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "TASK-FLOW.NET\\appsettings.Development.json",
-              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\appsettings.Development.json",
-              "RelativeToolTip": "TASK-FLOW.NET\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-07T18:59:12.136Z",
+              "DocumentIndex": 2,
+              "Title": "JwtAuthFilter.cs",
+              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\Auth\\Filters\\JwtAuthFilter.cs",
+              "RelativeDocumentMoniker": "TASK-FLOW.NET\\Auth\\Filters\\JwtAuthFilter.cs",
+              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\Auth\\Filters\\JwtAuthFilter.cs",
+              "RelativeToolTip": "TASK-FLOW.NET\\Auth\\Filters\\JwtAuthFilter.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAswB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T20:30:55.287Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 12,
               "Title": "Dockerfile",
               "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW.NET\\Dockerfile",
               "RelativeDocumentMoniker": "TASK-FLOW.NET\\Dockerfile",
@@ -187,38 +253,37 @@
               "RelativeToolTip": "TASK-FLOW.NET\\Dockerfile",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-01-02T19:21:12.37Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-02T19:21:12.37Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "UnitAccessLevelAuthFilterTest.cs",
               "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW-TESTING\\Auth\\Filters\\UnitAccessLevelAuthFilterTest.cs",
               "RelativeDocumentMoniker": "TASK-FLOW-TESTING\\Auth\\Filters\\UnitAccessLevelAuthFilterTest.cs",
               "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW-TESTING\\Auth\\Filters\\UnitAccessLevelAuthFilterTest.cs",
               "RelativeToolTip": "TASK-FLOW-TESTING\\Auth\\Filters\\UnitAccessLevelAuthFilterTest.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAuwC8AAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAAAkAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-29T16:55:42.747Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 10,
               "Title": "UnitAllowAnonymousAccessTest.cs",
               "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW-TESTING\\Auth\\Attributes\\UnitAllowAnonymousAccessTest.cs",
               "RelativeDocumentMoniker": "TASK-FLOW-TESTING\\Auth\\Attributes\\UnitAllowAnonymousAccessTest.cs",
               "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW-TESTING\\Auth\\Attributes\\UnitAllowAnonymousAccessTest.cs",
               "RelativeToolTip": "TASK-FLOW-TESTING\\Auth\\Attributes\\UnitAllowAnonymousAccessTest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-30T13:40:04.92Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
               "Title": "UnitIsAdminTest.cs",
               "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\T-A-S-K-----F-L-O-W.NET\\TASK-FLOW-TESTING\\Auth\\Attributes\\UnitIsAdminTest.cs",
               "RelativeDocumentMoniker": "TASK-FLOW-TESTING\\Auth\\Attributes\\UnitIsAdminTest.cs",
@@ -226,8 +291,7 @@
               "RelativeToolTip": "TASK-FLOW-TESTING\\Auth\\Attributes\\UnitIsAdminTest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-30T15:18:31.925Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-30T15:18:31.925Z"
             }
           ]
         }

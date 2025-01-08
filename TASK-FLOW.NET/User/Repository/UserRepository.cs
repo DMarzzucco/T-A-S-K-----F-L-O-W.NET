@@ -59,10 +59,9 @@ namespace TASK_FLOW.NET.User.Repository
                 .ThenInclude(pi => pi.Project)
                 .FirstOrDefaultAsync(u => u.Id == id);
 
-            if (user != null && user.ProjectIncludes != null && user.ProjectIncludes.Any())
-                return user;
+            if (user == null) return null;
 
-            user.ProjectIncludes = new List<UserProjectModel>();
+            user.ProjectIncludes ??= new List<UserProjectModel>();
             return user;
         }
 

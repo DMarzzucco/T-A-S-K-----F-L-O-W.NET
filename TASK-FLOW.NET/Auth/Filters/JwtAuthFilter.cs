@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
-using TASK_FLOW.NET.Auth.Attributes;
+﻿using Microsoft.AspNetCore.Mvc.Filters;
+using TASK_FLOW.NET.Auth.Helpers;
 using TASK_FLOW.NET.Auth.JWT.Service.Interface;
 using TASK_FLOW.NET.Auth.Service.Interface;
 
@@ -19,18 +18,12 @@ namespace TASK_FLOW.NET.Auth.Filters
 
         public async Task OnAuthorizationAsync(AuthorizationFilterContext context)
         {
-            var hasAllowAnonymousAccess = context.ActionDescriptor.EndpointMetadata.Any(md => md is AllowAnonymousAccessAttribute);
-            if (hasAllowAnonymousAccess) return;
+            if (AllowPublicAccessHelper.hasAllowPublicAccess(context)) return;
 
             var token = context.HttpContext.Request.Cookies["Authentication"];
             if (string.IsNullOrEmpty(token))
             {
-                context.Result = new ContentResult
-                {
-                    StatusCode = StatusCodes.Status401Unauthorized,
-                    Content = "Invalid or not Provider token.",
-                    ContentType = "application/json"
-                };
+                context.Result = ContentResultHelper.CreateContentResult(StatusCodes.Status401Unauthorized, "Invalid or not Provider Token");
                 return;
             }
             this._tokenService.ValidateToken(token);
