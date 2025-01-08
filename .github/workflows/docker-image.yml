@@ -48,7 +48,7 @@ jobs:
 
     - name: Test application
       run: |
-        docker-compose exec task_server npm run test  
+         docker-compose exec -T task_server /bin/bash -c "dotnet test"  
 
     - name: Stop Docker Compose services
       run: |
