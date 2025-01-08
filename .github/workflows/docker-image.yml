@@ -42,14 +42,6 @@ jobs:
       run: |
         docker-compose -f docker-compose.yml up --build -d 
 
-    # - name: Wait for services to be ready
-    #   run: |
-    #    docker-compose exec -T task_server /bin/sh -c "until nc -z localhost 5024; do sleep 1; done"
-
-    # - name: Test application
-    #   run: |
-    #      docker-compose exec -T task_server /bin/bash -c "dotnet test"  
-
     - name: Stop Docker Compose services
       run: |
         docker-compose down
