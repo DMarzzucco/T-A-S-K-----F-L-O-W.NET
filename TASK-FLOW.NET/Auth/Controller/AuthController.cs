@@ -28,7 +28,7 @@ namespace TASK_FLOW.NET.Auth.Controller
         /// <response code="401">Unauthorized</response>
         [AllowAnonymousAccess]
         [ServiceFilter(typeof(LocalAuthFilter))]
-        [HttpPost]
+        [HttpPost("login")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult> Login([FromBody] AuthPropsDTO body)
@@ -67,6 +67,19 @@ namespace TASK_FLOW.NET.Auth.Controller
         {
             await this._service.Logout();
             return Ok(new { message = "Log Out successfully" });
+        }
+        /// <summary>
+        /// Refresh Token
+        /// </summary>
+        /// <returns>200</returns>
+        /// <response code = "200">Ok</response>
+        /// <response code = "401">Unauthorized</response>
+        [HttpPost("refresh")]
+        public async Task<ActionResult> RefreshToken()
+        {
+            var newToken = await this._service.RefreshToken();
+
+            return StatusCode(StatusCodes.Status200OK, new { token = newToken });
         }
     }
 }

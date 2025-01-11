@@ -35,6 +35,7 @@ namespace TASK_FLOW_TESTING.Auth
                 );
         }
 
+        // Generate Token 
         [Fact]
         public async Task GenerateToken_ShouldGenerateTokenAndSetCookie()
         {
@@ -51,7 +52,25 @@ namespace TASK_FLOW_TESTING.Auth
 
             Assert.Equal(token.AccessToken, result);
         }
+        [Fact]
+        public async Task ShouldRefreshTheToken() {
 
+            var user = UsersMock.UserMock;
+            var token = AuthMock.TokenMock;
+
+            this._tokenService.Setup(s => s.GetIdFromToken()).Returns(user.Id);
+            this._userService.Setup(s => s.GetById(user.Id)).ReturnsAsync(user);
+            this._tokenService.Setup(s => s.RefreshToken(user)).Returns(token);
+
+            var result = await this._authService.RefreshToken();
+
+            this._userService.Verify(x => x.UpdateToken(user.Id, token.RefreshTokenHasher), Times.Once);
+
+            this._cookieService.Verify(x => x.SetTokenCookies(It.IsAny<HttpResponse>(), token), Times.Once);
+
+            Assert.Equal(token.AccessToken, result);
+        }
+        //Get the user from cookie
         [Fact]
         public async Task Should_Get_The_User_From_Cookie()
         {
@@ -65,6 +84,8 @@ namespace TASK_FLOW_TESTING.Auth
 
             Assert.Equal(user, result);
         }
+
+        //Validate the User credential
         [Fact]
         public async Task Should_Validate_the_User_Credentials()
         {

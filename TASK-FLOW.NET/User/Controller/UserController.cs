@@ -28,7 +28,7 @@ namespace TASK_FLOW.NET.User.Controller
         /// <response code="201">User Registered</response>
         /// <response code="409">Conflict between repeat dates</response>
         [AllowAnonymousAccess]
-        [HttpPost]
+        [HttpPost("register")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         public async Task<ActionResult<UsersModel>> RegisterUser([FromBody] CreateUserDTO body)

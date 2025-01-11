@@ -6,6 +6,7 @@ namespace TASK_FLOW.NET.Auth.Service.Interface
     public interface IAuthService
     {
         Task<UsersModel> ValidationUser(AuthPropsDTO body);
+        Task<string> RefreshToken();
         Task<string> GenerateToken(UsersModel body);
         Task<UsersModel> GetUserByCookie();
         Task<string> GetProfile();

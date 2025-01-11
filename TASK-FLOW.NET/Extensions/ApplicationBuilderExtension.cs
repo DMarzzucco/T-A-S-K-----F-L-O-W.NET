@@ -1,4 +1,6 @@
-﻿namespace TASK_FLOW.NET.Extensions
+﻿using TASK_FLOW.NET.Auth.Middleware;
+
+namespace TASK_FLOW.NET.Extensions
 {
     public static class ApplicationBuilderExtension
     {
@@ -9,6 +11,7 @@
             app.UseCors("CorsPolicy");
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseMiddleware<RefreshTokenMiddleware>();
             return app;
         }
     }

@@ -31,6 +31,15 @@ namespace TASK_FLOW.NET.Auth.Service
             this._cookieService.SetTokenCookies(this._httpContext.HttpContext.Response, token);
             return token.AccessToken;
         }
+        public async Task<string> RefreshToken() {
+            var user = await this.GetUserByCookie();
+            var token = this._tokenService.RefreshToken(user);
+
+            await this._userService.UpdateToken(user.Id, token.RefreshTokenHasher);
+
+            this._cookieService.SetTokenCookies(this._httpContext.HttpContext.Response, token);
+            return token.AccessToken;
+        }
 
         public async Task<string> GetProfile()
         {

@@ -18,9 +18,12 @@ namespace TASK_FLOW_TESTING.Auth
             this._mockService = new Mock<IAuthService>();
             this._authController = new AuthController(this._mockService.Object);
         }
-
+        /// <summary>
+        /// Login 
+        /// </summary>
+        /// <returns></returns>
         [Fact]
-        public async Task Login_ShouldReturnToken_WhenUserIsValid()
+        public async Task ShouldReturnTokenWhenUserIsValid()
         {
             var authProps = AuthMock.AuthDTOMock;
             var user = UsersMock.UserMock;
@@ -39,8 +42,13 @@ namespace TASK_FLOW_TESTING.Auth
             Assert.Equal(StatusCodes.Status200OK, result.StatusCode);
         }
 
+        
+        /// <summary>
+        /// Get username of user 
+        /// </summary>
+        /// <returns></returns>
         [Fact]
-        public async Task Get_the_Username_of_User()
+        public async Task ShouldGetTheUsername()
         {
             var expectUser = "DMarzz";
             this._mockService.Setup(s => s.GetProfile()).ReturnsAsync(expectUser);
@@ -53,12 +61,32 @@ namespace TASK_FLOW_TESTING.Auth
             Assert.Equal(expectUser, okResult.Value);
         }
 
+        /// <summary>
+        /// Logout
+        /// </summary>
+        /// <returns></returns>
         [Fact]
-        public async Task LogOut()
+        public async Task ShouldLogOutSection()
         {
             this._mockService.Setup(s => s.Logout()).Returns(Task.CompletedTask);
 
             var result = await this._authController.LogOut() as OkObjectResult;
+
+            Assert.NotNull(result);
+            Assert.Equal(StatusCodes.Status200OK, result.StatusCode);
+        }
+        /// <summary>
+        /// Refresh Token 
+        /// </summary>
+        /// <returns></returns>
+        [Fact]
+        public async Task ShouldRefreshToken()
+        {
+            var token = AuthMock.TokenMock;
+
+            this._mockService.Setup(s => s.RefreshToken()).ReturnsAsync(token.AccessToken);
+
+            var result = await this._authController.RefreshToken() as ObjectResult;
 
             Assert.NotNull(result);
             Assert.Equal(StatusCodes.Status200OK, result.StatusCode);

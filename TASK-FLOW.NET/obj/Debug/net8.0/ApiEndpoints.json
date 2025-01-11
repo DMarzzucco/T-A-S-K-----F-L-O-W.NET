@@ -2,7 +2,7 @@
   {
     "ContainingType": "TASK_FLOW.NET.Auth.Controller.AuthController",
     "Method": "Login",
-    "RelativePath": "api/Auth",
+    "RelativePath": "api/Auth/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -83,6 +83,16 @@
         "StatusCode": 401
       }
     ]
+  },
+  {
+    "ContainingType": "TASK_FLOW.NET.Auth.Controller.AuthController",
+    "Method": "RefreshToken",
+    "RelativePath": "api/Auth/refresh",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "TASK_FLOW.NET.Project.Controller.ProjectController",
@@ -423,41 +433,6 @@
   },
   {
     "ContainingType": "TASK_FLOW.NET.User.Controller.UserController",
-    "Method": "RegisterUser",
-    "RelativePath": "api/User",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "body",
-        "Type": "TASK_FLOW.NET.User.DTO.CreateUserDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "TASK_FLOW.NET.User.Model.UsersModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 201
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 409
-      }
-    ]
-  },
-  {
-    "ContainingType": "TASK_FLOW.NET.User.Controller.UserController",
     "Method": "GetAllUser",
     "RelativePath": "api/User",
     "HttpMethod": "GET",
@@ -584,6 +559,41 @@
           "text/json"
         ],
         "StatusCode": 404
+      }
+    ]
+  },
+  {
+    "ContainingType": "TASK_FLOW.NET.User.Controller.UserController",
+    "Method": "RegisterUser",
+    "RelativePath": "api/User/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "body",
+        "Type": "TASK_FLOW.NET.User.DTO.CreateUserDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TASK_FLOW.NET.User.Model.UsersModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 201
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 409
       }
     ]
   },

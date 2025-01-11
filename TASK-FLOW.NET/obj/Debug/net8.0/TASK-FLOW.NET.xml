@@ -29,6 +29,14 @@
             <response code="200">Ok</response>
             <response code="401">Unauthorized</response>
         </member>
+        <member name="M:TASK_FLOW.NET.Auth.Controller.AuthController.RefreshToken">
+            <summary>
+            Refresh Token
+            </summary>
+            <returns>200</returns>
+            <response code = "200">Ok</response>
+            <response code = "401">Unauthorized</response>
+        </member>
         <member name="T:TASK_FLOW.NET.Migrations.Initial">
             <inheritdoc />
         </member>

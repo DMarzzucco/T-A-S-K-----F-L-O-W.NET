@@ -10,7 +10,6 @@ namespace TASK_FLOW.NET.Configuration
             service.AddControllers(static e =>
             {
                 e.Filters.Add(typeof(GlobalFilterExceptions));
-
             }).AddJsonOptions(options =>
             {
                 options.JsonSerializerOptions.PropertyNamingPolicy = null;

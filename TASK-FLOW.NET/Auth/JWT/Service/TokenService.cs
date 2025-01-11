@@ -32,11 +32,67 @@ namespace TASK_FLOW.NET.Auth.JWT.Service
             if (Id == null) throw new UnauthorizedAccessException("Invalid Token");
 
             return Id;
-
         }
 
         public TokenPair GenerateToken(UsersModel user)
         {
+            return CreateTokenPair(
+                user,
+                DateTime.UtcNow.AddHours(1),
+                DateTime.UtcNow.AddDays(5)
+           );
+        }
+        public TokenPair RefreshToken(UsersModel user)
+        {
+            return CreateTokenPair(
+                user,
+                DateTime.UtcNow.AddDays(5),
+                DateTime.UtcNow.AddDays(5)
+                );
+        }
+
+        public bool ValidateToken(string token)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var keyBytes = Encoding.UTF8.GetBytes(this._secretKey);
+
+            var principal = new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(keyBytes),
+                ValidateIssuer = false,
+                ValidateAudience = false,
+                ValidateLifetime = true,
+                ClockSkew = TimeSpan.Zero
+            };
+
+            try
+            {
+                tokenHandler.ValidateToken(token, principal, out _);
+                return true;
+
+            }
+            catch (SecurityTokenExpiredException)
+            {
+                return false;
+            }
+        }
+
+        public bool isTokenExpireSoon(string token)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            if (!handler.CanReadToken(token)) return false;
+
+            var jwtToken = handler.ReadToken(token) as JwtSecurityToken;
+            if (jwtToken == null) return false;
+
+            var expiration = jwtToken.ValidTo;
+            return expiration <= DateTime.UtcNow.AddMinutes(21);
+        }
+
+        public TokenPair CreateTokenPair(UsersModel user, DateTime accessTokenExpired, DateTime refreshTokenExpired)
+        {
+
             var keyBytes = Encoding.UTF8.GetBytes(this._secretKey);
             var signingCredential = new SigningCredentials(new SymmetricSecurityKey(keyBytes), SecurityAlgorithms.HmacSha256Signature);
 
@@ -46,8 +102,8 @@ namespace TASK_FLOW.NET.Auth.JWT.Service
                 new Claim ("rol", user.Id.ToString())
             };
 
-            var accessToken = CreateToken(claims, signingCredential, DateTime.UtcNow.AddDays(2));
-            var refreshToken = CreateToken(claims, signingCredential, DateTime.UtcNow.AddDays(5));
+            var accessToken = CreateToken(claims, signingCredential, accessTokenExpired);
+            var refreshToken = CreateToken(claims, signingCredential, refreshTokenExpired);
 
             var refreshTokenHash = BCrypt.Net.BCrypt.HashPassword(refreshToken);
 
@@ -70,25 +126,6 @@ namespace TASK_FLOW.NET.Auth.JWT.Service
             var tokenHandler = new JwtSecurityTokenHandler();
             return tokenHandler.WriteToken(tokenHandler.CreateToken(tokenDescriptor));
         }
-
-        public void ValidateToken(string token)
-        {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var keyBytes = Encoding.UTF8.GetBytes(this._secretKey);
-
-            var principal = new TokenValidationParameters
-            {
-                ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(keyBytes),
-                ValidateIssuer = false,
-                ValidateAudience = false,
-                ValidateLifetime = true,
-                ClockSkew = TimeSpan.Zero
-            };
-
-            tokenHandler.ValidateToken(token, principal, out _);
-        }
-
     }
 
 }
