@@ -55,7 +55,8 @@ namespace TASK_FLOW_TESTING.UserProject
             this._userRepository.Setup(p => p.FindByIdAsync(body.UserId)).ReturnsAsync(user);
             var up = UserProjectsMocks.MockUserProject;
 
-            this._repository.Setup(r => r.AddChangeAsync(up)).Returns(Task.CompletedTask);
+            this._repository.Setup(r => r.AddChangeAsync(up)).ReturnsAsync(true);
+
             var res = await this._service.CreateUP(body) as UserProjectModel;
 
             Assert.NotNull(res);
@@ -108,7 +109,7 @@ namespace TASK_FLOW_TESTING.UserProject
             var id = 1;
 
             this._repository.Setup(r => r.findById(id)).ReturnsAsync(up);
-            this._repository.Setup(r => r.UpdateUPAsync(up)).Returns(Task.CompletedTask);
+            this._repository.Setup(r => r.UpdateUPAsync(up)).ReturnsAsync(true);
 
             var res = await this._service.UpdateUP(id, body) as UserProjectModel;
 

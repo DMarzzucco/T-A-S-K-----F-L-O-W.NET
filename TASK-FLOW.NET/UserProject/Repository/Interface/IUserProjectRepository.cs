@@ -4,8 +4,8 @@ namespace TASK_FLOW.NET.UserProject.Repository.Interface
 {
     public interface IUserProjectRepository
     {
-        Task AddChangeAsync(UserProjectModel body);
-        Task UpdateUPAsync(UserProjectModel body);
+        Task<bool> AddChangeAsync(UserProjectModel body);
+        Task<bool> UpdateUPAsync(UserProjectModel body);
         Task<IEnumerable<UserProjectModel>> ListofAllAsync();
         Task<UserProjectModel?> findById(int id);
     }

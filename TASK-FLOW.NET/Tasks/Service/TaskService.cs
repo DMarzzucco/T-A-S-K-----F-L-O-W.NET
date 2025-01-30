@@ -23,12 +23,13 @@ namespace TASK_FLOW.NET.Tasks.Service
         public async Task<TaskModel> CreateTask(int ProjectId, CreateTaskDTO body)
         {
             var project = await this._projectService.GetProjectById(ProjectId);
+
             if (project == null)
                 throw new KeyNotFoundException("Project not found");
 
             var mapperTask = this._mapper.Map<TaskModel>(body);
 
-            mapperTask.Project = project;
+            mapperTask.ProjectId = project.Id;
 
             await this._repository.SaveTaskAsync(mapperTask);
 

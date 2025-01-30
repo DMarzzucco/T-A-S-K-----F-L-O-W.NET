@@ -1,5 +1,4 @@
 ﻿using Moq;
-using Xunit;
 using Microsoft.AspNetCore.Http;
 using TASK_FLOW.NET.User.Service.Interface;
 using TASK_FLOW.NET.Auth.JWT.Service.Interface;

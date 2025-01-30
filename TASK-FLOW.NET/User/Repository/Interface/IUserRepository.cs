@@ -12,7 +12,7 @@ namespace TASK_FLOW.NET.User.Repository.Interface
         Task<UsersModel?> FindAsync();
         Task RemoveAsync(UsersModel user);
         Task AddChangeAsync(UsersModel user);
-        Task UpdateAsync(UsersModel user);
+        Task<bool>UpdateAsync(UsersModel user);
         Task<UsersModel?> FindByKey(string key, object value);
     }
 }

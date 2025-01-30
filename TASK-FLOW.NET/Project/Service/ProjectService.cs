@@ -4,6 +4,7 @@ using TASK_FLOW.NET.Project.DTO;
 using TASK_FLOW.NET.Project.Model;
 using TASK_FLOW.NET.Project.Repository.Interface;
 using TASK_FLOW.NET.Project.Service.Interface;
+using TASK_FLOW.NET.UserProject.DTO;
 using TASK_FLOW.NET.UserProject.Enums;
 using TASK_FLOW.NET.UserProject.Model;
 using TASK_FLOW.NET.UserProject.Repository.Interface;
@@ -53,15 +54,16 @@ namespace TASK_FLOW.NET.Project.Service
 
             await this._repository.SaveProjectAsync(project);
 
-            var relation = new UserProjectModel
+            var relation = new UserProjectDTO
             {
                 AccessLevel = ACCESSLEVEL.OWNER,
-                User = user,
-                Project = project
+                UserId = user.Id,
+                ProjectId = project.Id
             };
             var userProject = this._mapper.Map<UserProjectModel>(relation);
 
             await this._userProjectRepository.AddChangeAsync(userProject);
+
             return userProject;
         }
 

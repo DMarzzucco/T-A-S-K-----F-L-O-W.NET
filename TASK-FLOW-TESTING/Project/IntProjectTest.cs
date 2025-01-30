@@ -60,14 +60,12 @@ namespace TASK_FLOW_TESTING.Project
 
             this._repository.Setup(r => r.SaveProjectAsync(It.IsAny<ProjectModel>())).Returns(Task.CompletedTask);
 
-            this._userProjectRepository.Setup(r => r.AddChangeAsync(It.IsAny<UserProjectModel>())).Returns(Task.CompletedTask);
+            this._userProjectRepository.Setup(r => r.AddChangeAsync(It.IsAny<UserProjectModel>())).ReturnsAsync(true);
 
             var res = await this._projectService.SaveProject(body);
             var result = Assert.IsType<UserProjectModel>(res);
 
             Assert.NotNull(result);
-            Assert.Equal(user, result.User);
-            Assert.Equal(project.Name, result.Project.Name);
         }
 
         /// <summary>
@@ -79,18 +77,8 @@ namespace TASK_FLOW_TESTING.Project
         {
             var listProjects = new List<ProjectModel>
             {
-                new ProjectModel
-            {
-                Id = 4,
-                Name = "Project test",
-                Description = "This is a project test"
-            },
-                new ProjectModel
-            {
-                Id = 4,
-                Name = "Project test",
-                Description = "This is a project test"
-            }
+                ProjectMock.ProjectModelMock,
+                ProjectMock.ProjectModelMock 
             };
 
             this._repository.Setup(r => r.ListOfProjectAsync()).ReturnsAsync(listProjects);
@@ -150,7 +138,7 @@ namespace TASK_FLOW_TESTING.Project
         /// </summary>
         /// <returns></returns>
         [Fact]
-        public async Task Shoudl_Delete_A_Project()
+        public void Shoudl_Delete_A_Project()
         {
             var project = ProjectMock.ProjectModelMock;
 

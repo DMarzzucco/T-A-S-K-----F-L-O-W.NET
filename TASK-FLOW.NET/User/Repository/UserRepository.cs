@@ -57,6 +57,8 @@ namespace TASK_FLOW.NET.User.Repository
             var user = await this._context.UserModel
                 .Include(u => u.ProjectIncludes)
                 .ThenInclude(pi => pi.Project)
+                .ThenInclude(pi=> pi.Tasks)
+                .AsNoTracking()
                 .FirstOrDefaultAsync(u => u.Id == id);
 
             if (user == null) return null;
@@ -87,10 +89,25 @@ namespace TASK_FLOW.NET.User.Repository
         }
 
 
-        public async Task UpdateAsync(UsersModel user)
+        public async Task<bool> UpdateAsync(UsersModel user)
         {
+            var date = await this._context.UserModel.FirstOrDefaultAsync(u => u.Id == user.Id);
+
+            if (date == null) return false;
+
+            var existingUser = this._context.UserModel.Local.FirstOrDefault(u => u.Id == user.Id);
+
+            if (existingUser != null)
+            {
+                this._context.Entry(existingUser).State = EntityState.Detached;
+            }
+
+            this._context.Attach(user);
+
             this._context.UserModel.Entry(user).State = EntityState.Modified;
             await this._context.SaveChangesAsync();
+
+            return true;
         }
     }
 }

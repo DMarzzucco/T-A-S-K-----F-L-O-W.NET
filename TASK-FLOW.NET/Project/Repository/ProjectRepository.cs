@@ -26,6 +26,9 @@ namespace TASK_FLOW.NET.Project.Repository
             var project = await this._context.ProjectModel
                 .Include(u => u.UsersIncludes)
                 .ThenInclude(ui => ui.User)
+                .AsNoTracking()
+                .Include(u => u.Tasks)
+                .AsNoTracking()
                 .FirstOrDefaultAsync(p => p.Id == id);
 
             if (project == null) return null;

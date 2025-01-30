@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.IdentityModel.Tokens;
+using System.Diagnostics;
 using TASK_FLOW.NET.Utils.Exceptions;
 
 namespace TASK_FLOW.NET.Utils.Filters
@@ -15,6 +16,11 @@ namespace TASK_FLOW.NET.Utils.Filters
 
         public void OnException(ExceptionContext context)
         {
+            var stackTrace = new StackTrace(context.Exception, true);
+            var frame = stackTrace.GetFrame(0);
+            var fileName = frame?.GetFileName();
+            var lineNumber = frame?.GetFileLineNumber();
+
             var statusCode = context.Exception switch
             {
                 BadRequestException => 400,
@@ -41,7 +47,11 @@ namespace TASK_FLOW.NET.Utils.Filters
                     409 => context.Exception.Message,
                     _ => context.Exception.Message
                 },
-                Details = statusCode == 500 ? context.Exception.Message : null
+                Details = statusCode == 500 ?
+                    context.Exception.InnerException?.Message : null,
+
+                FileName = fileName,
+                LineNumber = lineNumber
             };
             context.Result = new ObjectResult(response)
             {
@@ -55,6 +65,8 @@ namespace TASK_FLOW.NET.Utils.Filters
             public int StatusCode { get; set; }
             public required string Message { get; set; }
             public string? Details { get; set; }
+            public string? FileName { get; set; }
+            public int? LineNumber { get; set; }
         }
     }
 }

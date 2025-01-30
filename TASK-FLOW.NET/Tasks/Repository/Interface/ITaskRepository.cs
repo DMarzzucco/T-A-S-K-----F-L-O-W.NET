@@ -7,7 +7,7 @@ namespace TASK_FLOW.NET.Tasks.Repository.Interface
         Task DeleteTaskAsync(TaskModel body);
         Task<TaskModel?> findByIdAsync(int id);
         Task<IEnumerable<TaskModel>> ListAllTaskAsync();
-        Task SaveTaskAsync(TaskModel body);
+        Task<bool> SaveTaskAsync(TaskModel body);
         Task UpdateTaskAsync(TaskModel body);
     }
 }

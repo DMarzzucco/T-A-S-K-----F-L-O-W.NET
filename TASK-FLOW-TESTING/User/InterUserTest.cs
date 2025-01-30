@@ -126,7 +126,7 @@ namespace TASK_FLOW_TESTING.User
             var user = UsersMock.UserMock;
             var id = 4;
             this._repository.Setup(r => r.FindByIdAsync(id)).ReturnsAsync(user);
-            this._repository.Setup(r => r.UpdateAsync(user)).Returns(Task.CompletedTask);
+            this._repository.Setup(r => r.UpdateAsync(user)).ReturnsAsync(true);
 
             var res = await this._service.UpdateUser(id, body) as UsersModel;
 

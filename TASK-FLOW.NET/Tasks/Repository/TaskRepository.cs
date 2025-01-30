@@ -30,7 +30,7 @@ namespace TASK_FLOW.NET.Tasks.Repository
                     Status = t.Status,
                     ResponsibleName = t.ResponsibleName,
                     ProjectId = t.ProjectId,
-                    Project = null
+                    Project = t.Project
                 })
                 .FirstOrDefaultAsync();
             return tasks;
@@ -50,10 +50,17 @@ namespace TASK_FLOW.NET.Tasks.Repository
             }).ToListAsync();
         }
 
-        public async Task SaveTaskAsync(TaskModel body)
+        public async Task<bool> SaveTaskAsync(TaskModel body)
         {
+            var project = await this._context.ProjectModel.FindAsync(body.ProjectId);
+
+            if (project == null) return false;
+
+            this._context.Attach(project);
+
             this._context.TaskModel.Add(body);
             await this._context.SaveChangesAsync();
+            return true;
         }
 
         public async Task UpdateTaskAsync(TaskModel body)

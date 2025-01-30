@@ -47,7 +47,8 @@ namespace TASK_FLOW_TESTING.Tasks
             var project = ProjectMock.ProjectModelMock;
 
             this._projectService.Setup(s => s.GetProjectById(projectId)).ReturnsAsync(project);
-            this._repository.Setup(r => r.SaveTaskAsync(tasks)).Returns(Task.CompletedTask);
+
+            this._repository.Setup(r => r.SaveTaskAsync(tasks)).ReturnsAsync(true);
 
             var res = await this._service.CreateTask(projectId, body) as TaskModel;
             Assert.NotNull(res);
