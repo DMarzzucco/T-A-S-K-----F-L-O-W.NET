@@ -15,12 +15,22 @@ namespace TASK_FLOW.NET.Project.Repository
             this._context = context;
         }
 
+        /// <summary>
+        /// Delete Project
+        /// </summary>
+        /// <param name="body"></param>
+        /// <returns></returns>
         public async Task DeleteProjectAsync(ProjectModel body)
         {
             this._context.ProjectModel.Remove(body);
             await this._context.SaveChangesAsync();
         }
 
+        /// <summary>
+        /// Find by key value
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<ProjectModel?> findByIdAsync(int id)
         {
             var project = await this._context.ProjectModel
@@ -37,7 +47,10 @@ namespace TASK_FLOW.NET.Project.Repository
 
             return project;
         }
-
+        /// <summary>
+        /// List of Project
+        /// </summary>
+        /// <returns></returns>
         public async Task<IEnumerable<ProjectModel>> ListOfProjectAsync()
         {
             return await this._context.ProjectModel.Select(u => new ProjectModel
@@ -50,13 +63,21 @@ namespace TASK_FLOW.NET.Project.Repository
 
             }).ToListAsync();
         }
-
+        /// <summary>
+        /// Save a Project
+        /// </summary>
+        /// <param name="body"></param>
+        /// <returns></returns>
         public async Task SaveProjectAsync(ProjectModel body)
         {
             this._context.ProjectModel.Add(body);
             await this._context.SaveChangesAsync();
         }
-
+        /// <summary>
+        /// Update a Project
+        /// </summary>
+        /// <param name="body"></param>
+        /// <returns></returns>
         public async Task UpdateProjectAsync(ProjectModel body)
         {
             this._context.ProjectModel.Entry(body).State = EntityState.Modified;

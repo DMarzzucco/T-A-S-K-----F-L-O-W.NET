@@ -26,6 +26,12 @@ namespace TASK_FLOW.NET.Project.Service
             this._mapper = mapper;
         }
 
+        /// <summary>
+        /// Delete Project
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="KeyNotFoundException"></exception>
         public async Task DeleteProject(int id)
         {
             var project = await this._repository.findByIdAsync(id);
@@ -34,6 +40,12 @@ namespace TASK_FLOW.NET.Project.Service
             await this._repository.DeleteProjectAsync(project);
         }
 
+        /// <summary>
+        /// Get One Register 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="KeyNotFoundException"></exception>
         public async Task<ProjectModel> GetProjectById(int id)
         {
             var project = await this._repository.findByIdAsync(id);
@@ -41,12 +53,20 @@ namespace TASK_FLOW.NET.Project.Service
 
             return project;
         }
-
+        /// <summary>
+        /// Get all register
+        /// </summary>
+        /// <returns></returns>
         public async Task<IEnumerable<ProjectModel>> ListOfProject()
         {
             return await this._repository.ListOfProjectAsync();
         }
 
+        /// <summary>
+        /// Save a new Project
+        /// </summary>
+        /// <param name="body"></param>
+        /// <returns></returns>
         public async Task<UserProjectModel> SaveProject(CreateProjectDTO body)
         {
             var user = await this._authService.GetUserByCookie();
@@ -67,6 +87,13 @@ namespace TASK_FLOW.NET.Project.Service
             return userProject;
         }
 
+        /// <summary>
+        /// Update a Project
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="body"></param>
+        /// <returns></returns>
+        /// <exception cref="KeyNotFoundException"></exception>
         public async Task<ProjectModel> UpdateProject(int id, UpdateProjectDTO body)
         {
             var project = await this._repository.findByIdAsync(id);

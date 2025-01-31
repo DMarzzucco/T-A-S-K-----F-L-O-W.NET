@@ -15,26 +15,41 @@ namespace TASK_FLOW.NET.User.Repository
             this._context = context;
         }
 
+        /// <summary>
+        ///  Add Change Async 
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public async Task AddChangeAsync(UsersModel user)
         {
             this._context.UserModel.Add(user);
             await this._context.SaveChangesAsync();
         }
 
+        /// <summary>
+        ///  Exist By Email
+        /// </summary>
+        /// <param name="Email"></param>
+        /// <returns></returns>
         public bool ExistsByEmail(string Email)
         {
             return this._context.UserModel.Any(u => u.Email == Email);
         }
 
+        /// <summary>
+        /// Exists By Username 
+        /// </summary>
+        /// <param name="Username"></param>
+        /// <returns></returns>
         public bool ExistsByUsername(string Username)
         {
             return this._context.UserModel.Any(u => u.Username == Username);
         }
 
-        public async Task<UsersModel?> FindAsync()
-        {
-            return await this._context.UserModel.FindAsync();
-        }
+        /// <summary>
+        /// To List Async 
+        /// </summary>
+        /// <returns></returns>
         public async Task<IEnumerable<UsersModel>> ToListAsync()
         {
             return await this._context.UserModel.Select(u => new UsersModel
@@ -52,6 +67,11 @@ namespace TASK_FLOW.NET.User.Repository
             }).ToListAsync();
         }
 
+        /// <summary>
+        /// Find By Id Async 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<UsersModel?> FindByIdAsync(int id)
         {
             var user = await this._context.UserModel
@@ -67,7 +87,12 @@ namespace TASK_FLOW.NET.User.Repository
             return user;
         }
 
-
+        /// <summary>
+        /// Find By Key
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public async Task<UsersModel?> FindByKey(string key, object value)
         {
             var user = await this._context.UserModel
@@ -76,19 +101,22 @@ namespace TASK_FLOW.NET.User.Repository
                 .SingleOrDefaultAsync();
             return user;
         }
-
+        /// <summary>
+        /// Remove Async 
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public async Task RemoveAsync(UsersModel user)
         {
             this._context.UserModel.Remove(user);
             await this._context.SaveChangesAsync();
         }
 
-        public async Task SaveChangeAsync()
-        {
-            await this._context.SaveChangesAsync();
-        }
-
-
+        /// <summary>
+        /// Update Async 
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public async Task<bool> UpdateAsync(UsersModel user)
         {
             var date = await this._context.UserModel.FirstOrDefaultAsync(u => u.Id == user.Id);

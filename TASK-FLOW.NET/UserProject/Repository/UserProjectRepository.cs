@@ -13,7 +13,11 @@ namespace TASK_FLOW.NET.UserProject.Repository
         {
             _context = context;
         }
-
+        /// <summary>
+        /// Add Change Async 
+        /// </summary>
+        /// <param name="body"></param>
+        /// <returns></returns>
         public async Task<bool> AddChangeAsync(UserProjectModel body)
         {
             var project = await this._context.ProjectModel.FindAsync(body.ProjectId);
@@ -35,18 +39,29 @@ namespace TASK_FLOW.NET.UserProject.Repository
 
             return true;
         }
-
+        /// <summary>
+        /// Fin by ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<UserProjectModel?> findById(int id)
         {
             var up = await _context.UserProjectModel.FindAsync(id);
             return up;
         }
-
+        /// <summary>
+        /// List Of All Relations
+        /// </summary>
+        /// <returns></returns>
         public async Task<IEnumerable<UserProjectModel>> ListofAllAsync()
         {
             return await _context.UserProjectModel.ToListAsync();
         }
-
+        /// <summary>
+        /// Update Relations
+        /// </summary>
+        /// <param name="body"></param>
+        /// <returns></returns>
         public async Task<bool> UpdateUPAsync(UserProjectModel body)
         {
             _context.UserProjectModel.Entry(body).State = EntityState.Modified;
