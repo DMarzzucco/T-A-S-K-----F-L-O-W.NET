@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\TASK-FLOW.NET.props" />
-</Project>

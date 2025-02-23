@@ -1,0 +1,24 @@
+[package]
+name = "kernel"
+version = "0.1.0"
+authors = ["Dario Marzzucco <DMarzzucco>"]
+edition = "2018"
+
+[dependencies]
+init = { path = "init" }
+macros = { path = "macros" }
+register = "0.3.2"
+
+
+[dependencies.utils]
+path = "utils"
+features = ["no-atomics"]
+version = "0.1.0"
+
+[workspace]
+members = [
+    "init",
+    "macros",
+    "macro_tests",
+    "utils",
+]

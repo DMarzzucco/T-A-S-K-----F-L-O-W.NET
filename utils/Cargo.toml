@@ -1,0 +1,13 @@
+[package]
+name = "utils"
+version = "0.1.0"
+authors = ["Jack Wickham <jackwickham@live.co.uk>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[features]
+# If exclusive accesses aren't supported, for now we want to fall back to non-atomic operations
+no-atomics = []
